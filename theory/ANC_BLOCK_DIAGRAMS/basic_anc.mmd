@@ -1,0 +1,7 @@
+flowchart LR
+    X["Reference x(n)"] --> W["Adaptive Filter W(z)"]
+    W --> Y["Control / Anti-noise y(n)"]
+    D["Disturbance d(n)"] --> SUM(("Σ"))
+    Y --> SUM
+    SUM --> E["Residual / Error e(n)"]
+    E --> W

@@ -1,0 +1,13 @@
+flowchart LR
+    X["Reference x(n)"] --> W["Adaptive Filter W(z)"]
+    X --> SH["Secondary-path estimate Ŝ(z)"]
+    SH --> XF["Filtered reference x_f(n)"]
+    XF --> UP["FxLMS coefficient update"]
+    W --> C["Anti-noise"]
+    C --> S["Physical Secondary Path S(z)"]
+    D["Disturbance"] --> P["Primary Path P(z)"]
+    P --> SUM(("Σ"))
+    S --> SUM
+    SUM --> E["Error e(n)"]
+    E --> UP
+    UP --> W

@@ -1,0 +1,10 @@
+flowchart LR
+    R["Reference"] --> FF["Feedforward Controller"]
+    E["Error"] --> FB["Feedback Controller"]
+    FF --> SUM(("Σ"))
+    FB --> SUM
+    SUM --> SP["Actuator + Secondary Path"]
+    N["Disturbance"] --> P["Primary Path"]
+    P --> SUM2(("Σ"))
+    SP --> SUM2
+    SUM2 --> E

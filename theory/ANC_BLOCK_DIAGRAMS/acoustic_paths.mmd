@@ -1,0 +1,6 @@
+flowchart LR
+    N["Unwanted noise"] --> P["Primary acoustic path P(z)"]
+    P --> E["Error / cancellation location"]
+    C["Controller output"] --> A["Actuator / speaker"]
+    A --> S["Secondary acoustic path S(z)"]
+    S --> E

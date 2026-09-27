@@ -1,0 +1,12 @@
+flowchart LR
+    N["Noise source"] --> P["Primary Path P(z)"]
+    N --> R["Reference microphone"]
+    R --> X["Reference x(n)"]
+    X --> W["Adaptive Filter"]
+    W --> C["Anti-noise"]
+    C --> S["Secondary Path S(z)"]
+    S --> SUM(("Σ"))
+    P --> SUM
+    SUM --> EM["Error microphone"]
+    EM --> E["Error e(n)"]
+    E --> W

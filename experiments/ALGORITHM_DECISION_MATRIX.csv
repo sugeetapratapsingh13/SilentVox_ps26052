@@ -1,0 +1,16 @@
+Parameter,LMS,NLMS,FxLMS
+Noise reduction (dB),1.3038,1.2992,1.9492
+Convergence,Measured,Measured,Measured
+Stability,Stable,Stable,Stable
+CPU measured,84.5-102.5%,97.5-105.3%,Not measured
+RAM measured (MB),68.05-68.33,68.34,Not measured
+Processing time (s),0.1901,0.2696,0.2083
+Filter length,128,128,64
+Step size (μ),0.0001,0.001,0.00001
+Block sizes tested,256/512/1024,256/512/1024,Sample-by-sample simulation
+Real-time factor,29.71-54.69,21.03-39.01,14.40
+Latency,0.2925-3.7247 ms,0.4102-3.8340 ms,Not directly comparable
+Real-time status,PASS,PASS,PASS
+Complexity,Lower computational complexity,Normalization adds computation,Secondary-path modeling adds computation
+Implementation status,Implemented and tested,Implemented and tested,Implemented and tested
+Evidence source,parameter_sweep.csv + REALTIME_BENCHMARK.csv,parameter_sweep.csv + REALTIME_BENCHMARK.csv + EPSILON_SWEEP.csv,FXLMS_BENCHMARK.csv

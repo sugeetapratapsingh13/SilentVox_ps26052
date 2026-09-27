@@ -1,0 +1,2 @@
+Algorithm,Sampling_Rate,Filter_Length,Step_Size,Processing_Time_s,Noise_Reduction_dB,Average_Latency_ms,RTF,Stability,Status
+FxLMS,16000,64,1e-05,0.20832539998809807,1.9492485100657633,69.44179999603269,14.400548373704764,Stable,PASS

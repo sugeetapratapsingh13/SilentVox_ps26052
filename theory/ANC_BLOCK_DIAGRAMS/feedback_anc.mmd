@@ -1,0 +1,7 @@
+flowchart LR
+    N["Disturbance"] --> SUM(("Σ"))
+    SP["Secondary Path S(z)"] --> SUM
+    SUM --> E["Error"]
+    E --> C["Feedback Controller"]
+    C --> SP
+    E --> C

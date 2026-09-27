@@ -1,0 +1,10 @@
+flowchart LR
+    X["Reference vector x(n)"] --> W["FIR weights w(n)"]
+    W --> Y["y(n)"]
+    D["Desired / disturbance d(n)"] --> SUM(("Σ"))
+    Y --> SUM
+    SUM --> E["e(n)"]
+    X --> N["Input energy ||x(n)||²"]
+    E --> UP["NLMS normalized update"]
+    N --> UP
+    UP --> W
