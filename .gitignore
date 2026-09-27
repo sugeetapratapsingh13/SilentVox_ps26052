@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.wav
+*.zip
+
+LibriSpeech/
+
+M3-P4/evaluation/enhanced_audio/
+
+deliverables/_extracted/
