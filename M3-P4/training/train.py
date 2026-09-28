@@ -1,3 +1,4 @@
+﻿import os
 import sys
 import csv
 import random
@@ -28,7 +29,7 @@ EPOCHS = 5
 LEARNING_RATE = 0.001
 
 DATASET_DIR = Path(
-    r"C:\Users\Tanisha\Downloads\M3-P2_dataset\dataset"
+    Path(os.environ.get("M3_P2_DATASET_DIR", ROOT / "dataset" / "data"))
 )
 
 MIXTURE_DIR = DATASET_DIR / "mixtures"
@@ -250,3 +251,5 @@ print()
 print("Training complete.")
 print("Model saved  :", MODEL_PATH)
 print("Metrics saved:", METRICS_PATH)
+
+

@@ -1,7 +1,9 @@
+﻿import os
 import sys
 from pathlib import Path
 
-PREPROCESSING_DIR = Path(__file__).resolve().parents[1] / "preprocessing"
+ROOT = Path(__file__).resolve().parents[2]
+PREPROCESSING_DIR = ROOT / "preprocessing"
 sys.path.insert(0, str(PREPROCESSING_DIR))
 
 import torch
@@ -115,8 +117,8 @@ class SpeechEnhancementDataset(Dataset):
 if __name__ == "__main__":
 
     dataset = SpeechEnhancementDataset(
-        r"C:\Users\Tanisha\Downloads\M3-P2_dataset\dataset\mixtures",
-        r"C:\Users\Tanisha\Downloads\M3-P2_dataset\dataset\speech"
+        str(Path(os.environ.get("M3_P2_DATASET_DIR", ROOT / "dataset" / "data")) / "mixtures"),
+        str(Path(os.environ.get("M3_P2_DATASET_DIR", ROOT / "dataset" / "data")) / "speech")
     )
 
     print("Number of samples:", len(dataset))
@@ -129,3 +131,8 @@ if __name__ == "__main__":
     print("Target dtype:", y.dtype)
     print("Input min/max:", float(x.min()), float(x.max()))
     print("Target min/max:", float(y.min()), float(y.max()))
+
+
+
+
+
