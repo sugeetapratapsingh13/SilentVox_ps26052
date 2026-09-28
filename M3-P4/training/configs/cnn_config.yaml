@@ -1,0 +1,22 @@
+sample_rate: 16000
+n_fft: 512
+win_length: 512
+hop_length: 128
+
+model: cnn
+
+loss: mse
+
+optimizer: adam
+learning_rate: 0.001
+
+batch_size: 4
+epochs: 5
+
+train_split: 0.8
+validation_split: 0.2
+
+random_seed: 42
+
+input_representation: magnitude
+target_representation: ideal_ratio_mask

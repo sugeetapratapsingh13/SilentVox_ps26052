@@ -1,29 +1,10 @@
-﻿# Python cache
 __pycache__/
-*.py[cod]
-*.class
-
-# Raw/generated audio
+*.pyc
 *.wav
-*.mp3
-*.flac
-*.ogg
+*.zip
 
-# Generated feature arrays
-*.npy
+LibriSpeech/
 
-# Temporary files
-*.tmp
-*.temp
+M3-P4/evaluation/enhanced_audio/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# IDE / OS
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Keep trained PyTorch models (*.pt)
-# Keep required normalization statistics (*.npz)
+deliverables/_extracted/
