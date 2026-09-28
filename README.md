@@ -1,107 +1,116 @@
-# SilentVox ANC
+SilentVox - M2 Noise Classification
+1. Overview
+SilentVox M2 is the AI/ML noise classification module of the SilentVox adaptive noise cancellation (ANC) defence hearing-protection headset.
 
-SilentVox is an active noise cancellation (ANC) research and simulation project.
+The purpose of M2 is to identify the acoustic environment from incoming audio and provide a reliable noise-classification output that can later be used by the complete SilentVox system to select or adapt appropriate processing modes.
 
-## ANC implementation
+The current implementation focuses on a validated four-class operational model:
 
-The project contains:
+ENGINE
+RAIN
+SIREN
+WIND
+The broader research taxonomy contains additional defence-relevant categories, but those categories are not currently part of the trained operational CNN model.
 
-- LMS adaptive filtering
-- NLMS adaptive filtering
-- FxLMS adaptive filtering
-- Simulated secondary-path modelling
-- Multi-condition ANC simulation
-- Parameter sweeps
-- Real-time processing benchmarks
+2. Current Operational Model
+The currently validated operational CNN contains four classes:
 
-## Main algorithms
+Index	Class
+0	ENGINE
+1	RAIN
+2	SIREN
+3	WIND
+The class mapping is defined in:
 
-The primary ANC implementation is NLMS.
+models/architecture/cnn_logmel_labels.json
 
-Run:
+Current model input:
 
-    python ANC/algorithms/NLMS.py
+Sample rate: 16 kHz
+Audio: mono
+Window duration: 2 seconds
+Window size: 32,000 samples
+Feature representation: Log-Mel spectrogram
+Mel bands: 64
+Input shape: 1 x 64 x 197
+The current CNN has:
 
-LMS:
+Base channels: 8
+Training epochs: 40
+Batch size: 32
+Learning rate: 0.001
+Weight decay: 0.0001
+Random seed: 42
+Trainable parameters: approximately 6,132
+3. Research Taxonomy vs Operational Taxonomy
+The research stage defines a broader taxonomy for future SilentVox development.
 
-    python ANC/algorithms/LMS.py
+Research taxonomy:
 
-FxLMS:
+ENGINE
+ROTOR
+VEHICLE
+MACHINERY
+WIND
+RAIN
+SIREN
+ALARM
+CROWD
+IMPACT/IMPULSIVE
+SPEECH
+MIXED
+UNKNOWN
+This broader taxonomy is used for research, dataset investigation, class-definition work, and future expansion.
 
-    python ANC/algorithms/FxLMS.py
+It must not be confused with the current operational CNN taxonomy.
 
-A second FxLMS implementation from the P5 work is preserved as:
+Current Operational Taxonomy
+The currently trained and validated CNN uses only:
 
-    python ANC/algorithms/FxLMS_P5.py
+ENGINE
+RAIN
+SIREN
+WIND
+The remaining research classes require additional dataset validation, class balancing, source diversity analysis, and model evaluation before they can be introduced into the operational model.
 
-## Simulation
+UNKNOWN
+UNKNOWN is not a fifth CNN class.
 
-Run the multi-condition simulation:
+It is intended as a future rejection/OOD mechanism that can identify predictions where the model does not have sufficient confidence that the input belongs to one of the supported operational classes.
 
-    python ANC/simulation/run_simulation.py
+The current confidence threshold has not been treated as a calibrated final deployment threshold.
 
-The simulation evaluates:
+4. M2 Processing Pipeline
+The complete M2 pipeline is:
 
-- stationary noise
-- non-stationary noise
-- periodic mechanical noise
-- impulsive/transient noise
-- speech plus noise
-
-Results are written to:
-
-    ANC/experiments/
-
-Plots are stored under:
-
-    ANC/plots/
-
-## Secondary path
-
-The current secondary-path model is SIMULATED.
-
-Parameters:
-
-- Sampling rate: 16 kHz
-- Delay: 8 samples
-- Delay: 0.5 ms
-- Attenuation: 0.7
-- FIR coefficients: [0.20, 0.30, 0.15, 0.05]
-
-Run the secondary-path analysis with:
-
-    python ANC/secondary_path/SECONDARY_PATH_ANALYSIS.py
-
-No physical secondary-path measurement or closed-loop hardware validation is claimed in this repository.
-
-## Benchmarks
-
-Benchmark scripts are located in:
-
-    ANC/benchmarks/
-
-The repository includes parameter-sweep and real-time benchmark results.
-
-## Research
-
-Research and literature material is located in:
-
-    ANC/research/
-
-Theory and equations are located in:
-
-    ANC/theory/
-
-## Reproducibility
-
-Python dependencies should be installed before running the scripts.
-
-The repository intentionally does not include virtual environments, Python cache files, generated WAV files, API keys, passwords, or other local-machine artifacts.
-
-## Status
-
-The ANC algorithms and simulation pipeline have been executed locally as part of the P6 integration and benchmark process.
-
-FxLMS has been executed with the simulated secondary path.
-
-Physical ANC hardware validation is not claimed unless separately documented.
+Audio Input
+    |
+    v
+16 kHz Mono Audio
+    |
+    v
+2-second Audio Window
+    |
+    v
+Preprocessing
+    |
+    v
+Log-Mel Spectrogram
+    |
+    v
+Normalization
+    |
+    v
+CNN Model
+    |
+    v
+Class Probabilities
+    |
+    v
+Predicted Class + Confidence
+    |
+    v
+Temporal Smoothing
+    |
+    v
+Final Classification Output
