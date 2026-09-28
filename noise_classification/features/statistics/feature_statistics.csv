@@ -1,0 +1,36 @@
+metric,split,target_class,value
+total_feature_windows,all,all,640
+unique_source_recordings,all,all,127
+feature_windows,train,all,456
+unique_sources,train,all,89
+feature_windows,validation,all,92
+unique_sources,validation,all,19
+feature_windows,test,all,92
+unique_sources,test,all,19
+feature_windows,all,ENGINE,160
+feature_windows,all,RAIN,160
+feature_windows,all,SIREN,160
+feature_windows,all,WIND,160
+feature_windows,train,ENGINE,116
+feature_windows,train,RAIN,112
+feature_windows,train,SIREN,108
+feature_windows,train,WIND,120
+feature_windows,validation,ENGINE,24
+feature_windows,validation,RAIN,24
+feature_windows,validation,SIREN,20
+feature_windows,validation,WIND,24
+feature_windows,test,ENGINE,20
+feature_windows,test,RAIN,24
+feature_windows,test,SIREN,32
+feature_windows,test,WIND,16
+sample_rate_hz,all,all,16000
+window_duration_sec,all,all,2.0
+window_hop_sec,all,all,1.0
+n_fft,all,all,512
+win_length,all,all,400
+hop_length,all,all,160
+n_mels,all,all,64
+n_mfcc,all,all,13
+mfcc_shape,all,all,"(13, 197)"
+log_mel_shape,all,all,"(64, 197)"
+feature_version,all,all,P3-v0.1

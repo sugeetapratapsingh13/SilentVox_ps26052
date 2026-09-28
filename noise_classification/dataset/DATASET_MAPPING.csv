@@ -1,0 +1,25 @@
+dataset,original_label,SilentVox_class,mapping_type,inclusion_decision,mapping_reason,taxonomy_version,notes
+ESC-50,engine,ENGINE,DIRECT,KEEP,Original ESC-50 label directly represents an engine-dominant acoustic source,P1-v0.1-investigate,40 verified recordings
+ESC-50,rain,RAIN,DIRECT,KEEP,Original ESC-50 label directly represents rainfall noise,P1-v0.1-investigate,40 verified recordings
+ESC-50,siren,SIREN,DIRECT,KEEP,Original ESC-50 label directly represents siren audio,P1-v0.1-investigate,40 verified recordings
+ESC-50,wind,WIND,DIRECT,KEEP,Original ESC-50 label directly represents wind noise,P1-v0.1-investigate,40 verified recordings
+ESC-50,clock_alarm,ALARM,PARTIAL,INVESTIGATE,Alarm semantics are relevant but the source category does not represent every alarm type,P1-v0.1-investigate,Requires experimental validation
+ESC-50,chainsaw,MACHINERY,PARTIAL,INVESTIGATE,Mechanical equipment source is relevant but does not represent all machinery,P1-v0.1-investigate,Requires experimental validation
+ESC-50,hand_saw,MACHINERY,PARTIAL,INVESTIGATE,Mechanical tool source is relevant but does not represent all machinery,P1-v0.1-investigate,Requires experimental validation
+ESC-50,vacuum_cleaner,MACHINERY,PARTIAL,INVESTIGATE,Mechanical equipment source is relevant but does not represent all machinery,P1-v0.1-investigate,Requires experimental validation
+ESC-50,washing_machine,MACHINERY,PARTIAL,INVESTIGATE,Mechanical equipment source is relevant but does not represent all machinery,P1-v0.1-investigate,Requires experimental validation
+ESC-50,helicopter,ROTOR,PARTIAL,INVESTIGATE,Helicopter recordings may contain rotor-dominant acoustic content but also other components,P1-v0.1-investigate,Requires acoustic verification
+# SilentVox — P2 Preprocessing Specification
+
+## 1. Purpose
+
+This document defines the controlled audio preprocessing requirements for the SilentVox AI/ML noise-classification pipeline.
+
+The preprocessing stage converts accepted source recordings into a consistent audio representation for feature extraction and model training.
+
+---
+
+## 2. P2 Version
+
+```text
+P2-v0.1

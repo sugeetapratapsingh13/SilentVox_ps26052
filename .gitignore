@@ -1,0 +1,29 @@
+﻿# Python cache
+__pycache__/
+*.py[cod]
+*.class
+
+# Raw/generated audio
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Generated feature arrays
+*.npy
+
+# Temporary files
+*.tmp
+*.temp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Keep trained PyTorch models (*.pt)
+# Keep required normalization statistics (*.npz)

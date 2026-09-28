@@ -1,0 +1,28 @@
+{
+    "feature_version": "P3-v0.1",
+    "p2_version": "P2-v0.1",
+    "random_seed": 42,
+    "sample_rate_hz": 16000,
+    "channels": 1,
+    "window_duration_seconds": 2.0,
+    "window_hop_seconds": 1.0,
+    "window_samples": 32000,
+    "hop_samples": 16000,
+    "n_fft": 512,
+    "win_length": 400,
+    "hop_length": 160,
+    "n_mels": 64,
+    "n_mfcc": 13,
+    "power": 2.0,
+    "center": false,
+    "feature_types": [
+        "MFCC",
+        "Log-Mel Spectrogram"
+    ],
+    "normalization": {
+        "method": "training_split_global_per_feature_coefficient",
+        "statistics_source": "train_only",
+        "epsilon": 1e-08
+    },
+    "split_policy": "inherited_from_P2_source_level_split"
+}

@@ -1,0 +1,11 @@
+esc50_category,target_class,status
+engine,ENGINE,KEEP
+rain,RAIN,KEEP
+siren,SIREN,KEEP
+wind,WIND,KEEP
+chainsaw,MACHINERY,INVESTIGATE
+hand_saw,MACHINERY,INVESTIGATE
+vacuum_cleaner,MACHINERY,INVESTIGATE
+washing_machine,MACHINERY,INVESTIGATE
+clock_alarm,ALARM,INVESTIGATE
+helicopter,ROTOR,INVESTIGATE

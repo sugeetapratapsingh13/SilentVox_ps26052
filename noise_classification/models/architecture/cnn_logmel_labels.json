@@ -1,0 +1,29 @@
+{
+  "p4_version": "P4-v0.1",
+  "p3_version": "P3-v0.1",
+  "classes": [
+    "ENGINE",
+    "RAIN",
+    "SIREN",
+    "WIND"
+  ],
+  "class_to_index": {
+    "ENGINE": 0,
+    "RAIN": 1,
+    "SIREN": 2,
+    "WIND": 3
+  },
+  "input_shape": [
+    1,
+    64,
+    197
+  ],
+  "base_channels": 8,
+  "epochs": 40,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 42,
+  "best_epoch": 23,
+  "best_validation_macro_f1": 0.5537831733483908
+}

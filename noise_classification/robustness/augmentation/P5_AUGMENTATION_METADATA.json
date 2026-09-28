@@ -1,0 +1,36 @@
+{
+  "p5_version": "P5-v0.1",
+  "p4_baseline_version": "P4-v0.1",
+  "p3_version": "P3-v0.1",
+  "p2_version": "P2-v0.1",
+  "classes": [
+    "ENGINE",
+    "RAIN",
+    "SIREN",
+    "WIND"
+  ],
+  "input_shape": [
+    1,
+    64,
+    197
+  ],
+  "augmentation": {
+    "noise_std": 0.02,
+    "time_mask_width": 10,
+    "frequency_mask_width": 6,
+    "training_only": true,
+    "validation_untouched": true,
+    "test_untouched": true
+  },
+  "training": {
+    "epochs": 40,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "base_channels": 8,
+    "seed": 42
+  },
+  "best_epoch": 23,
+  "best_validation_macro_f1": 0.555563909774436,
+  "device": "cpu"
+}
