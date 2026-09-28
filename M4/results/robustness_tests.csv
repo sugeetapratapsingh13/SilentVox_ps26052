@@ -1,0 +1,19 @@
+test,parameter,value,unit,interpretation
+timing_delay,1,0.17962727020714536,RMS difference,software-simulated reference delay
+timing_delay,5,0.1902831627446078,RMS difference,software-simulated reference delay
+timing_delay,10,0.18605673557068583,RMS difference,software-simulated reference delay
+gain_mismatch,0.85,0.48146000504493713,peak,software-simulated channel gain
+gain_mismatch,1.0,0.5663930177688599,peak,software-simulated channel gain
+gain_mismatch,1.1,0.6230353713035583,peak,software-simulated channel gain
+quantization,8,0.002271461015806003,RMS error,software quantization model
+quantization,12,0.0001405710229622706,RMS error,software quantization model
+quantization,16,3.997402699802182e-06,RMS error,software quantization model
+quantization,24,1.5314303905319105e-08,RMS error,software quantization model
+frequency_limitation,3000,0.1424713559811877,RMS difference,software low-pass model
+frequency_limitation,6000,0.14033469449040933,RMS difference,software low-pass model
+frequency_limitation,7900,0.04451206806322946,RMS difference,software low-pass model
+additive_noise,0.001,42.32281493446977,digital test-stream SNR dB,software noise injection
+additive_noise,0.01,22.323148314784685,digital test-stream SNR dB,software noise injection
+additive_noise,0.03,12.780693531871963,digital test-stream SNR dB,software noise injection
+clipping,0.8,0.800000011920929,peak after clip,software saturation model
+dac_simulation,16,3.997402699802182e-06,RMS reconstruction error,digital reconstruction-side model

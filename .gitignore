@@ -8,3 +8,6 @@ LibriSpeech/
 M3-P4/evaluation/enhanced_audio/
 
 deliverables/_extracted/
+
+# Duplicate/legacy M4 working copy
+M4_Audio_Front_End_CLEAN/

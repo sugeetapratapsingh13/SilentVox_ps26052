@@ -1,0 +1,7 @@
+test_name,command,status,evidence_file,timestamp_utc
+Audio analysis,python -m analysis.run_analysis,PASS,results/audio_metrics.csv; plots/*.png,2026-09-28T17:59:15.844463+00:00
+Robustness,python -m analysis.robustness,PASS,results/robustness_tests.csv,2026-09-28T17:59:17.239143+00:00
+Block benchmark,python benchmark.py,PASS,results/block_latency_benchmark.csv,2026-09-28T17:59:18.681441+00:00
+Unit tests,python -m unittest discover -s tests -p test_*.py,PASS,tests/test_*.py,2026-09-28T17:59:20.011066+00:00
+Expected evidence files,runner file check,PASS,all expected result files present,2026-09-28T17:59:20.011705+00:00
+Generated plot evidence,runner plot check,PASS,24 PNG plots in plots/,2026-09-28T17:59:20.011713+00:00

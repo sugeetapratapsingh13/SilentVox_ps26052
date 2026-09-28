@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SilentVox M4 Audio Front-End</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="wrap">
+<h1>SILENTVOX AUDIO FRONT-END</h1>
+<p class="subtitle">M4 browser validation — virtual audio boundary</p>
+<section class="grid">
+<div class="card"><h2>REF</h2><div class="meter"><span id="refMeter"></span></div><p>Reference channel</p></div>
+<div class="card"><h2>ERR</h2><div class="meter"><span id="errMeter"></span></div><p>Error channel</p></div>
+<div class="card"><h2>SPCH</h2><div class="meter"><span id="spchMeter"></span></div><p>Speech channel</p></div>
+</section>
+<section class="card controls">
+<div><b>Sample Rate:</b> <span id="sr">16 kHz</span></div><div><b>Block Size:</b> <span id="bs">512</span></div><div><b>Channels:</b> <span>3 logical</span></div>
+<button id="start">START AUDIOWORKLET</button><button id="stop" disabled>STOP</button>
+<p id="status">Idle. Browser processing has not started.</p>
+</section>
+<section class="card"><h2>Processing Flow</h2><pre>REF / ERR / SPCH → AudioWorkletProcessor → output</pre><p class="note">This page demonstrates browser block processing. It is not a Raspberry Pi performance measurement.</p></section>
+</main>
+<script src="app.js"></script>
+</body></html>
