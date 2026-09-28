@@ -1,0 +1,66 @@
+{
+  "status": "SIMULATED",
+  "validation_boundary": {
+    "software_only": true,
+    "physical_headset_validation": false,
+    "physical_secondary_path_measurement": false,
+    "real_time_hardware_validation": false
+  },
+  "audio": {
+    "sample_rate_hz": 16000,
+    "samples": 64000,
+    "duration_seconds": 4.0,
+    "channels": [
+      "REF",
+      "ERR",
+      "SPCH"
+    ]
+  },
+  "m2": {
+    "class_index": 3,
+    "class_name": "WIND",
+    "confidence": 0.276523619890213,
+    "probabilities": [
+      0.2538881301879883,
+      0.19723117351531982,
+      0.27235713601112366,
+      0.276523619890213
+    ],
+    "feature_shape": [
+      64,
+      197
+    ],
+    "note": "Software integration result; not an M2 accuracy measurement."
+  },
+  "m5": {
+    "sample_rate_hz": 16000,
+    "filter_length": 128,
+    "delay_samples": 32,
+    "delay_ms": 2.0,
+    "attenuation": 0.65,
+    "status": "SIMULATED_SECONDARY_PATH_PHYSICAL_MEASUREMENT_PENDING"
+  },
+  "m1": {
+    "sample_rate_hz": 16000,
+    "filter_length": 64,
+    "learning_rate": 1e-05,
+    "secondary_path_mode": "M5_SIMULATED_SECONDARY_PATH"
+  },
+  "metrics": {
+    "input_rms": 0.07563176102687377,
+    "residual_rms": 0.07536386837564396,
+    "attenuation_db": 0.030820606584263045,
+    "processing_time_ms": 298.30030001176056,
+    "real_time_factor": 13.409305990782775,
+    "frame_duration_ms": 4000.0,
+    "finite_control": true,
+    "finite_residual": true,
+    "finite_weights": true
+  },
+  "notes": [
+    "This is a virtual software simulation.",
+    "M5 is a simulated secondary-path estimate.",
+    "Attenuation is a simulated numerical result, not a physical ANC measurement.",
+    "Frame duration is not equivalent to end-to-end hardware latency."
+  ]
+}

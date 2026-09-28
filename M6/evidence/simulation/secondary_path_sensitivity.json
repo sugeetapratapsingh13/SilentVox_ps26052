@@ -1,0 +1,195 @@
+{
+  "status": "SIMULATED",
+  "sample_rate_hz": 16000,
+  "delay_values_ms": [
+    0.0,
+    1.0,
+    2.0,
+    5.0,
+    10.0
+  ],
+  "attenuation_values": [
+    0.4,
+    0.65,
+    0.85
+  ],
+  "base_secondary_path": {
+    "filter_length": 128,
+    "delay_samples": 32,
+    "attenuation": 0.65
+  },
+  "results": [
+    {
+      "delay_ms": 0.0,
+      "delay_samples": 0,
+      "secondary_path_attenuation": 0.4,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07551568859242844,
+      "attenuation_db": 0.013340516910365604,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 0.0,
+      "delay_samples": 0,
+      "secondary_path_attenuation": 0.65,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07536386837564396,
+      "attenuation_db": 0.030820606584263045,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 0.0,
+      "delay_samples": 0,
+      "secondary_path_attenuation": 0.85,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07523411933508152,
+      "attenuation_db": 0.04578742178477939,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 1.0,
+      "delay_samples": 16,
+      "secondary_path_attenuation": 0.4,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07552931064290695,
+      "attenuation_db": 0.011773836410905916,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 1.0,
+      "delay_samples": 16,
+      "secondary_path_attenuation": 0.65,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07539328405911354,
+      "attenuation_db": 0.027431030973937856,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 1.0,
+      "delay_samples": 16,
+      "secondary_path_attenuation": 0.85,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07527473624058886,
+      "attenuation_db": 0.041099405709028355,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 2.0,
+      "delay_samples": 32,
+      "secondary_path_attenuation": 0.4,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.0754503576098837,
+      "attenuation_db": 0.02085820388738245,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 2.0,
+      "delay_samples": 32,
+      "secondary_path_attenuation": 0.65,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07520847093542112,
+      "attenuation_db": 0.04874907208076349,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 2.0,
+      "delay_samples": 32,
+      "secondary_path_attenuation": 0.85,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07499650848783516,
+      "attenuation_db": 0.0732633545805943,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 5.0,
+      "delay_samples": 80,
+      "secondary_path_attenuation": 0.4,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.075453527674584,
+      "attenuation_db": 0.020493271836965078,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 5.0,
+      "delay_samples": 80,
+      "secondary_path_attenuation": 0.65,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07520293654471791,
+      "attenuation_db": 0.04938826704195727,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 5.0,
+      "delay_samples": 80,
+      "secondary_path_attenuation": 0.85,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07496881831996811,
+      "attenuation_db": 0.07647094596195815,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 10.0,
+      "delay_samples": 160,
+      "secondary_path_attenuation": 0.4,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07563176102687377,
+      "attenuation_db": 0.0,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 10.0,
+      "delay_samples": 160,
+      "secondary_path_attenuation": 0.65,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07563176102687377,
+      "attenuation_db": 0.0,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    },
+    {
+      "delay_ms": 10.0,
+      "delay_samples": 160,
+      "secondary_path_attenuation": 0.85,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07563176102687377,
+      "attenuation_db": 0.0,
+      "finite_control": true,
+      "finite_residual": true,
+      "finite_weights": true
+    }
+  ],
+  "notes": [
+    "Simulation-only secondary-path sensitivity experiment.",
+    "Modified impulse responses are generated in memory.",
+    "The M5 repository model is not modified.",
+    "Results are not physical acoustic measurements.",
+    "Results should not be interpreted as Raspberry Pi hardware performance."
+  ]
+}

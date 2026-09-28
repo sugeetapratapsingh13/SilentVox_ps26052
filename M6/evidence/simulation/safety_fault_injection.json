@@ -1,0 +1,42 @@
+{
+  "status": "SIMULATED",
+  "hardware_watchdog": false,
+  "physical_validation": false,
+  "cases": [
+    {
+      "name": "normal",
+      "state": "MONITOR",
+      "fault": null
+    },
+    {
+      "name": "invalid_shape",
+      "state": "SAFE_OUTPUT",
+      "fault": "INVALID_AUDIO_SHAPE"
+    },
+    {
+      "name": "empty_audio",
+      "state": "SAFE_OUTPUT",
+      "fault": "EMPTY_AUDIO"
+    },
+    {
+      "name": "nan_audio",
+      "state": "SAFE_OUTPUT",
+      "fault": "NON_FINITE_AUDIO"
+    },
+    {
+      "name": "processing_failure",
+      "state": "SAFE_OUTPUT",
+      "fault": "PROCESSING_FAILURE:RuntimeError"
+    },
+    {
+      "name": "non_finite_output",
+      "state": "SAFE_OUTPUT",
+      "fault": "NON_FINITE_OUTPUT"
+    },
+    {
+      "name": "length_mismatch",
+      "state": "SAFE_OUTPUT",
+      "fault": "OUTPUT_LENGTH_MISMATCH"
+    }
+  ]
+}

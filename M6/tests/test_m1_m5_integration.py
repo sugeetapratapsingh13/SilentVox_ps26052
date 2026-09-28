@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import tempfile
 import unittest
@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from M6.adapters.m1_adapter import M1Adapter
-from M6.adapters.m5_adapter import M5Adapter
+from M6.adapters.m5_adapter import M5Adapter, M5SecondaryPath
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -83,6 +83,68 @@ class TestM1M5Integration(unittest.TestCase):
         self.assertEqual(result.residual.shape, reference.shape)
         self.assertTrue(np.isfinite(result.residual).all())
         self.assertTrue(np.isfinite(result.weights).all())
+
+    def test_m5_impulse_response_is_applied_without_double_delay_or_attenuation(self):
+        model_path = self.extract_m5_model()
+        real_model = M5Adapter(model_path).load()
+
+        # Verify the actual M5 artifact.
+        self.assertEqual(
+            int(np.argmax(real_model.impulse_response)),
+            32,
+        )
+        self.assertAlmostEqual(
+            float(real_model.impulse_response[32]),
+            0.65,
+            places=12,
+        )
+
+        # Regression case:
+        # the impulse response itself is the complete secondary path.
+        # Metadata delay/attenuation must not be applied again.
+        synthetic_path = M5SecondaryPath(
+            impulse_response=np.array([0.65], dtype=np.float64),
+            sample_rate=16000,
+            delay_samples=32,
+            attenuation=0.65,
+            status="SIMULATED",
+        )
+
+        reference = np.ones(8, dtype=np.float64)
+        disturbance = np.zeros(8, dtype=np.float64)
+        disturbance[0] = 1.0
+
+        result = M1Adapter(
+            filter_length=1,
+            learning_rate=1e-5,
+        ).process(
+            reference,
+            disturbance=disturbance,
+            secondary_path=synthetic_path,
+        )
+
+        # The first control sample is generated at n=1.
+        # Because the complete IR is [0.65], its secondary response
+        # must occur at n=1, despite metadata claiming delay=32.
+        self.assertNotEqual(
+            float(result.residual[1]),
+            0.0,
+        )
+
+        # Expected secondary contribution:
+        # control = 1e-5, complete IR = 0.65.
+        expected_secondary = 0.65e-5
+        actual_secondary = -float(result.residual[1])
+
+        self.assertAlmostEqual(
+            actual_secondary,
+            expected_secondary,
+            delta=1e-10,
+        )
+
+        self.assertTrue(
+            np.isfinite(result.residual).all()
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,60 @@
+{
+  "status": "SIMULATED",
+  "sample_rate_hz": 16000,
+  "block_sizes_samples": [
+    256,
+    512,
+    1024
+  ],
+  "secondary_path": {
+    "filter_length": 128,
+    "delay_samples": 32,
+    "attenuation": 0.65,
+    "status": "SIMULATED_SECONDARY_PATH_PHYSICAL_MEASUREMENT_PENDING"
+  },
+  "results": [
+    {
+      "block_size_samples": 256,
+      "block_duration_ms": 16.0,
+      "mean_processing_ms": 0.9689803997753188,
+      "max_processing_ms": 1.6892999992705882,
+      "real_time_factor": 16.512201901823794,
+      "input_rms": 0.07557461008542979,
+      "residual_rms": 0.07557419262354181,
+      "attenuation_db": 4.791306145817862e-05,
+      "processing_below_block_duration": true,
+      "blocks_tested": 250
+    },
+    {
+      "block_size_samples": 512,
+      "block_duration_ms": 32.0,
+      "mean_processing_ms": 1.8685376005014405,
+      "max_processing_ms": 2.6108000020030886,
+      "real_time_factor": 17.125692301515627,
+      "input_rms": 0.07559978188545387,
+      "residual_rms": 0.07559810476639445,
+      "attenuation_db": 0.0001926319790049568,
+      "processing_below_block_duration": true,
+      "blocks_tested": 125
+    },
+    {
+      "block_size_samples": 1024,
+      "block_duration_ms": 64.0,
+      "mean_processing_ms": 4.259224193153767,
+      "max_processing_ms": 8.445200001006015,
+      "real_time_factor": 15.026210665987701,
+      "input_rms": 0.07560761196412524,
+      "residual_rms": 0.07560338471863684,
+      "attenuation_db": 0.0004856597210597031,
+      "processing_below_block_duration": true,
+      "blocks_tested": 62
+    }
+  ],
+  "notes": [
+    "This is a software block-processing benchmark.",
+    "Each block is processed independently.",
+    "This is not a continuous stateful hardware audio-stream test.",
+    "Processing time below block duration is a preliminary software real-time feasibility indicator.",
+    "It is not a physical Raspberry Pi latency measurement."
+  ]
+}

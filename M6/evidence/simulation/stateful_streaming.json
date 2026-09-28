@@ -1,0 +1,59 @@
+{
+  "status": "SIMULATED",
+  "physical_validation": false,
+  "sample_rate_hz": 16000,
+  "samples": 64000,
+  "continuous_stateful_processing": true,
+  "state_persistence": true,
+  "m1_source_modified": false,
+  "input_reference": "M4/virtual_mics/reference.wav",
+  "input_disturbance": "M4/virtual_mics/error.wav",
+  "m5_model": "SilentVox_M5_GITHUB_CLEAN.zip::SilentVox_M5/models/secondary_path_estimate.npy",
+  "block_sizes": [
+    256,
+    512,
+    1024
+  ],
+  "results": [
+    {
+      "block_size": 256,
+      "samples": 64000,
+      "duration_seconds": 4.0,
+      "processing_seconds": 0.2555253000027733,
+      "real_time_factor": 15.654027213573713,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.0753915245826233,
+      "attenuation_db": 0.027633738643938806,
+      "finite_residual": true,
+      "state_samples_processed": 64000,
+      "final_weight_norm": 0.004286264277902481
+    },
+    {
+      "block_size": 512,
+      "samples": 64000,
+      "duration_seconds": 4.0,
+      "processing_seconds": 0.22869530000025406,
+      "real_time_factor": 17.490521230631135,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07537481072800675,
+      "attenuation_db": 0.029559562428426535,
+      "finite_residual": true,
+      "state_samples_processed": 64000,
+      "final_weight_norm": 0.004592402674822776
+    },
+    {
+      "block_size": 1024,
+      "samples": 64000,
+      "duration_seconds": 4.0,
+      "processing_seconds": 0.2391438000049675,
+      "real_time_factor": 16.726337876695577,
+      "input_rms": 0.07563176102687377,
+      "residual_rms": 0.07537083976659643,
+      "attenuation_db": 0.030017172083655348,
+      "finite_residual": true,
+      "state_samples_processed": 64000,
+      "final_weight_norm": 0.004676976375895234
+    }
+  ],
+  "note": "Software-only M6 stateful FxLMS streaming simulation. Adaptive weights and signal histories persist across blocks. M4 virtual WAV artifacts are used directly. No Raspberry Pi or physical headset validation is claimed."
+}

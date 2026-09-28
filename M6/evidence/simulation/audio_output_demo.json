@@ -1,0 +1,17 @@
+{
+  "status": "SIMULATED",
+  "physical_validation": false,
+  "sample_rate_hz": 16000,
+  "duration_seconds": 4,
+  "samples": 64000,
+  "input_rms": 0.17489141459469904,
+  "output_rms": 0.13346276949976446,
+  "input_noise_rms": 0.12031353871415368,
+  "residual_noise_rms": 0.04210973856967607,
+  "simulated_noise_attenuation_db": 9.118639108926413,
+  "safety_state": "MONITOR",
+  "safety_fault": null,
+  "input_wav": "C:\\Users\\Sugeeta\\OneDrive\\Desktop\\SilentVox_ps26052\\M6\\evidence\\simulation\\speech_plus_noise_input.wav",
+  "output_wav": "C:\\Users\\Sugeeta\\OneDrive\\Desktop\\SilentVox_ps26052\\M6\\evidence\\simulation\\silentvox_output.wav",
+  "note": "Software-only demonstration using synthetic speech and noise. Processing stage is a simulation proxy, not physical ANC validation."
+}

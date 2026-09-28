@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import sys
 from dataclasses import dataclass
@@ -99,49 +99,72 @@ class M1Adapter:
                 )
 
         if secondary_path is None:
+            # Preserve the original M1 simulation exactly.
             secondary_filter = M1_NATIVE_SECONDARY_FILTER
             delay_samples = M1_NATIVE_DELAY_SAMPLES
             attenuation = M1_NATIVE_ATTENUATION
             secondary_path_mode = "M1_NATIVE_SIMULATION"
+
+            x_filtered = lfilter(
+                secondary_filter,
+                [1.0],
+                reference,
+            )
+
+            secondary_buffer = np.zeros(
+                delay_samples + 1,
+                dtype=np.float64,
+            )
+
         else:
             if secondary_path.sample_rate != self.sample_rate:
                 raise ValueError(
                     "M5 secondary-path sample rate does not match M1"
                 )
 
+            # M5's impulse_response is the COMPLETE simulated
+            # secondary path. It already contains its delay,
+            # attenuation, and acoustic tail. Do not apply those
+            # metadata values a second time.
             secondary_filter = np.asarray(
                 secondary_path.impulse_response,
                 dtype=np.float64,
             )
-            delay_samples = int(secondary_path.delay_samples)
-            attenuation = float(secondary_path.attenuation)
+
             secondary_path_mode = "M5_SIMULATED_SECONDARY_PATH"
 
             if secondary_filter.ndim != 1:
                 raise ValueError("secondary path must be 1-D")
+
+            if secondary_filter.size == 0:
+                raise ValueError("secondary path must not be empty")
 
             if not np.isfinite(secondary_filter).all():
                 raise ValueError(
                     "secondary path contains non-finite values"
                 )
 
-        x_filtered = lfilter(
-            secondary_filter,
-            [1.0],
-            reference,
-        )
+            # The M5 IR is used for the physical secondary-path
+            # response below. For the FxLMS adaptation signal,
+            # retain the reference itself so the complete M5 IR
+            # is applied exactly once to the generated control.
+            x_filtered = reference.copy()
+
+            # Causal history for convolution with the complete M5 IR.
+            secondary_buffer = np.zeros(
+                secondary_filter.size,
+                dtype=np.float64,
+            )
 
         weights = np.zeros(self.filter_length, dtype=np.float64)
+
         reference_buffer = np.zeros(
             self.filter_length,
             dtype=np.float64,
         )
+
         filtered_buffer = np.zeros(
             self.filter_length,
-            dtype=np.float64,
-        )
-        secondary_buffer = np.zeros(
-            delay_samples + 1,
             dtype=np.float64,
         )
 
@@ -157,17 +180,27 @@ class M1Adapter:
             secondary_buffer[1:] = secondary_buffer[:-1]
             secondary_buffer[0] = control[n]
 
-            secondary_output = 0.0
+            if secondary_path is None:
+                # Original M1 delayed/attenuated secondary-path model.
+                secondary_output = 0.0
 
-            for k in range(secondary_filter.size):
-                buffer_index = delay_samples - k
+                for k in range(secondary_filter.size):
+                    buffer_index = delay_samples - k
 
-                if buffer_index >= 0:
-                    secondary_output += (
-                        attenuation
-                        * secondary_filter[k]
-                        * secondary_buffer[buffer_index]
+                    if buffer_index >= 0:
+                        secondary_output += (
+                            attenuation
+                            * secondary_filter[k]
+                            * secondary_buffer[buffer_index]
+                        )
+            else:
+                # Complete M5 IR: y[n] = sum(h[k] * u[n-k]).
+                secondary_output = float(
+                    np.dot(
+                        secondary_filter,
+                        secondary_buffer,
                     )
+                )
 
             residual[n] = disturbance[n] - secondary_output
 
@@ -179,6 +212,15 @@ class M1Adapter:
                 * residual[n]
                 * filtered_buffer
             )
+
+        if not np.isfinite(control).all():
+            raise RuntimeError("M1 produced non-finite control output")
+
+        if not np.isfinite(residual).all():
+            raise RuntimeError("M1 produced non-finite residual output")
+
+        if not np.isfinite(weights).all():
+            raise RuntimeError("M1 produced non-finite weights")
 
         return M1FxLMSResult(
             reference=reference,

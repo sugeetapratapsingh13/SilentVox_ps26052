@@ -1,0 +1,79 @@
+{
+  "project": "SilentVox",
+  "module": "M6",
+  "status": "SIMULATED",
+  "physical_validation": false,
+  "raspberry_pi_validation": false,
+  "architecture": [
+    "M4 virtual audio",
+    "M2 noise classification/control signal",
+    "M1 stateful FxLMS ANC",
+    "M3 speech enhancement",
+    "final output"
+  ],
+  "m2": {
+    "raw_label": "ENGINE",
+    "majority_label": "ENGINE",
+    "probability_label": "ENGINE",
+    "confidence": 0.4146861732006073
+  },
+  "m1": {
+    "algorithm": "Stateful FxLMS",
+    "filter_length": 64,
+    "learning_rate": 1e-05,
+    "block_size": 512,
+    "state_persistence": true,
+    "samples_processed": 64000,
+    "final_weight_norm": 0.004592402674822776,
+    "processing_seconds": 0.2914141999935964,
+    "real_time_factor": 13.72616708481569
+  },
+  "m3": {
+    "model": "M3-P4/model/trained_model.pth",
+    "finite_output": true,
+    "output_samples": 64000
+  },
+  "m5": {
+    "source": "SilentVox_M5_GITHUB_CLEAN.zip",
+    "status": "SIMULATED_SECONDARY_PATH_PHYSICAL_MEASUREMENT_PENDING"
+  },
+  "m4": {
+    "reference": "M4/virtual_mics/reference.wav",
+    "disturbance": "M4/virtual_mics/error.wav",
+    "speech": "M4/virtual_mics/speech.wav"
+  },
+  "metrics": {
+    "status": "SIMULATED",
+    "physical_validation": false,
+    "raspberry_pi_validation": false,
+    "sample_rate_hz": 16000,
+    "block_size": 512,
+    "samples": 64000,
+    "duration_seconds": 4.0,
+    "m1_processing_seconds": 0.2914141999935964,
+    "m1_real_time_factor": 13.72616708481569,
+    "input_rms": 0.07563176102687377,
+    "anc_residual_rms": 0.07537481072800675,
+    "final_output_rms": 0.12402458759957653,
+    "anc_attenuation_db": 0.029559562428426535,
+    "m1_state_samples": 64000,
+    "m1_final_weight_norm": 0.004592402674822776,
+    "m1_finite": true,
+    "m3_finite": true,
+    "final_output_finite": true,
+    "m2_raw_label": "ENGINE",
+    "m2_majority_label": "ENGINE",
+    "m2_probability_label": "ENGINE",
+    "m2_confidence": 0.4146861732006073,
+    "m5_status": "SIMULATED_SECONDARY_PATH_PHYSICAL_MEASUREMENT_PENDING",
+    "output_file": "M6\\evidence\\integration\\final_integrated_output.wav"
+  },
+  "notes": [
+    "Software-only integration.",
+    "M4 virtual WAV files are used.",
+    "M5 secondary path is simulated.",
+    "No Raspberry Pi hardware was tested.",
+    "No physical headset validation is claimed.",
+    "M2 classification is a control signal and is not treated as a serial audio-processing stage."
+  ]
+}
