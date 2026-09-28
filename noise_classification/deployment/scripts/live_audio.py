@@ -24,29 +24,33 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 P3_STATS_PATH = (
     PROJECT_ROOT
-    / "FEATURE_EXTRACTION"
+    / "noise_classification"
+    / "features"
     / "metadata"
     / "feature_normalization_stats.npz"
 )
 
 P3_CONFIG_PATH = (
     PROJECT_ROOT
-    / "FEATURE_EXTRACTION"
+    / "noise_classification"
+    / "features"
     / "metadata"
     / "feature_config.json"
 )
 
 MODEL_PATH = (
     PROJECT_ROOT
-    / "ROBUSTNESS_ANALYSIS"
+    / "noise_classification"
     / "models"
+    / "trained_models"
     / "cnn_logmel_augmented_best.pt"
 )
 
 CNN_MODEL_DIR = (
     PROJECT_ROOT
-    / "MODEL_TRAINING"
-    / "scripts"
+    / "noise_classification"
+    / "models"
+    / "architecture"
 )
 
 if str(CNN_MODEL_DIR) not in sys.path:
