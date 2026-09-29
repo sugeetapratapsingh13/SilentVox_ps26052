@@ -10,17 +10,17 @@
   "results": [
     {
       "block_size": 256,
-      "wall_time_seconds": 4.7839855999918655,
+      "wall_time_seconds": 4.040614299941808,
       "orchestrator_pass": true
     },
     {
       "block_size": 512,
-      "wall_time_seconds": 3.950675699976273,
+      "wall_time_seconds": 4.6526407999917865,
       "orchestrator_pass": true
     },
     {
       "block_size": 1024,
-      "wall_time_seconds": 3.517127100029029,
+      "wall_time_seconds": 4.409150899969973,
       "orchestrator_pass": true
     }
   ],
