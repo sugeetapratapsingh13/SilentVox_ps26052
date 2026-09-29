@@ -1,0 +1,22 @@
+SILENTVOX STAGE-2 INTEGRATED SPEECH METRICS
+================================================
+
+Reference:
+  D:\SilentVox_ps26052\M4\virtual_mics\speech_clean.wav
+
+Integrated output:
+  D:\SilentVox_ps26052\integration\stage2_output.wav
+
+Sample rate:        16000 Hz
+Samples compared:   64000
+Duration:            4.000000 sec
+
+STOI:               0.437609
+SI-SDR:             12.301356 dB
+
+Metrics path:
+  Clean speech -> speech+noise -> M2 -> M1 -> M3 -> integrated output
+
+These metrics evaluate the integrated speech path against the
+available clean-speech reference. They do not constitute physical
+headset or Raspberry Pi validation.
