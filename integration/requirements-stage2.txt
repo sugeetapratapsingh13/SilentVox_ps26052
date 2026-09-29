@@ -1,0 +1,9 @@
+﻿# SilentVox Stage-2 PC software integration
+#
+# External Python packages directly required by the
+# M1 + M2 + M3 integration layer.
+
+numpy
+librosa
+soundfile
+torch
