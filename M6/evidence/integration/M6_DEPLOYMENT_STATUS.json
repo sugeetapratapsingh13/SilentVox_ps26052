@@ -35,5 +35,6 @@
     "Physical ANC measurements",
     "Complete headset acoustic validation"
   ],
-  "benchmark_limitation": "The current 256, 512 and 1024 values are benchmark-labelled trials only; they are not passed into the orchestrator and therefore do not constitute measured performance at those actual audio block sizes."
+  "benchmark_limitation": "The 256, 512 and 1024 trials are software/virtual benchmark runs in which the selected block size is passed to the M6 orchestrator through SILENTVOX_BLOCK_SIZE; these results are not physical Raspberry Pi 5 latency measurements."
 }
+
