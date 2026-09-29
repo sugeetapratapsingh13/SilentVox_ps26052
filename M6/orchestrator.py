@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import importlib.util
+import os
 import inspect
 import json
 import sys
@@ -72,7 +73,7 @@ TRIAL_CSV = OUT_DIR / "final_integration_trials.csv"
 # ============================================================
 
 SAMPLE_RATE = 16000
-BLOCK_SIZE = 512
+BLOCK_SIZE = int(os.environ.get("SILENTVOX_BLOCK_SIZE", "512"))
 M2_WINDOW = 32000
 
 M1_FILTER_LENGTH = 64

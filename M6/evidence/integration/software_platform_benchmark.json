@@ -1,0 +1,32 @@
+{
+  "benchmark_type": "SOFTWARE_PLATFORM_BENCHMARK",
+  "target_platform": "Raspberry Pi 5",
+  "physical_validation": false,
+  "block_sizes": [
+    256,
+    512,
+    1024
+  ],
+  "results": [
+    {
+      "block_size": 256,
+      "wall_time_seconds": 4.040614299941808,
+      "orchestrator_pass": true
+    },
+    {
+      "block_size": 512,
+      "wall_time_seconds": 4.6526407999917865,
+      "orchestrator_pass": true
+    },
+    {
+      "block_size": 1024,
+      "wall_time_seconds": 4.409150899969973,
+      "orchestrator_pass": true
+    }
+  ],
+  "notes": [
+    "Each benchmark trial passes its block size to the M6 orchestrator through SILENTVOX_BLOCK_SIZE.",
+    "The orchestrator therefore processes the corresponding audio block size for each trial.",
+    "This remains a software/virtual benchmark and is not a physical Raspberry Pi 5 latency measurement."
+  ]
+}
