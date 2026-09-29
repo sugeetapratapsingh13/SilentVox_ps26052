@@ -1,0 +1,684 @@
+
+onnx.quantize0.1.0:ײ‡
+T
+decoder.0.bias
+conv2d_3_bias_reshape_shapeconv2d_3_bias_reshape_output"Reshape
+T
+decoder.2.bias
+conv2d_4_bias_reshape_shapeconv2d_4_bias_reshape_output"Reshape
+P
+encoder.0.bias
+conv2d_bias_reshape_shapeconv2d_bias_reshape_output"Reshape
+T
+encoder.2.bias
+conv2d_1_bias_reshape_shapeconv2d_1_bias_reshape_output"Reshape
+T
+encoder.4.bias
+conv2d_2_bias_reshape_shapeconv2d_2_bias_reshape_output"Reshape
+d
+inputinput_quantizedinput_scaleinput_zero_pointinput_QuantizeLinear"DynamicQuantizeLinear
+h
+input_scale
+encoder.0.weight_scalenode_conv2d_quant_scales_mul:0node_conv2d_quant_scales_mul"Mul
+
+input_quantized
+encoder.0.weight_quantized
+input_zero_point
+encoder.0.weight_zero_pointconv2d_output_quantizednode_conv2d_quant"ConvInteger*
+auto_pad"NOTSET *
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+m
+conv2d_output_quantized#conv2d_output_quantized_cast_outputconv2d_output_quantized_cast"Cast*	
+to 
+‰
+#conv2d_output_quantized_cast_output
+node_conv2d_quant_scales_mul:0conv2dquant_scaled_output"node_conv2d_quant_output_scale_mul"Mul
+U
+conv2dquant_scaled_output
+conv2d_bias_reshape_outputconv2dconv2d_bias_add"Add
+
+conv2drelu	node_relu"ReluJ
+	namespace: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.1: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jƒ
+pkg.torch.onnx.fx_nodei%relu : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d,), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'encoder', 'encoder.1', 'relu']Jל
+pkg.torch.onnx.stack_traceֽFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+_
+relurelu_quantized
+relu_scalerelu_zero_pointrelu_QuantizeLinear"DynamicQuantizeLinear
+k
+
+relu_scale
+encoder.2.weight_scale node_conv2d_1_quant_scales_mul:0node_conv2d_1_quant_scales_mul"Mul
+
+relu_quantized
+encoder.2.weight_quantized
+relu_zero_point
+encoder.2.weight_zero_pointconv2d_1_output_quantizednode_conv2d_1_quant"ConvInteger*
+auto_pad"NOTSET *
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+s
+conv2d_1_output_quantized%conv2d_1_output_quantized_cast_outputconv2d_1_output_quantized_cast"Cast*	
+to 
+‘
+%conv2d_1_output_quantized_cast_output
+ node_conv2d_1_quant_scales_mul:0conv2d_1quant_scaled_output$node_conv2d_1_quant_output_scale_mul"Mul
+]
+conv2d_1quant_scaled_output
+conv2d_1_bias_reshape_outputconv2d_1conv2d_1_bias_add"Add
+¬
+conv2d_1relu_1node_relu_1"ReluJ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.3: torch.nn.modules.activation.ReLU/relu_1: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_1,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'encoder', 'encoder.3', 'relu_1']Jל
+pkg.torch.onnx.stack_traceֽFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+i
+relu_1relu_1_quantizedrelu_1_scalerelu_1_zero_pointrelu_1_QuantizeLinear"DynamicQuantizeLinear
+m
+relu_1_scale
+encoder.4.weight_scale node_conv2d_2_quant_scales_mul:0node_conv2d_2_quant_scales_mul"Mul
+
+relu_1_quantized
+encoder.4.weight_quantized
+relu_1_zero_point
+encoder.4.weight_zero_pointconv2d_2_output_quantizednode_conv2d_2_quant"ConvInteger*
+auto_pad"NOTSET *
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+s
+conv2d_2_output_quantized%conv2d_2_output_quantized_cast_outputconv2d_2_output_quantized_cast"Cast*	
+to 
+‘
+%conv2d_2_output_quantized_cast_output
+ node_conv2d_2_quant_scales_mul:0conv2d_2quant_scaled_output$node_conv2d_2_quant_output_scale_mul"Mul
+]
+conv2d_2quant_scaled_output
+conv2d_2_bias_reshape_outputconv2d_2conv2d_2_bias_add"Add
+¬
+conv2d_2relu_2node_relu_2"ReluJ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.5: torch.nn.modules.activation.ReLU/relu_2: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_2 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_2,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'encoder', 'encoder.5', 'relu_2']Jל
+pkg.torch.onnx.stack_traceֽFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+i
+relu_2relu_2_quantizedrelu_2_scalerelu_2_zero_pointrelu_2_QuantizeLinear"DynamicQuantizeLinear
+m
+relu_2_scale
+decoder.0.weight_scale node_conv2d_3_quant_scales_mul:0node_conv2d_3_quant_scales_mul"Mul
+
+relu_2_quantized
+decoder.0.weight_quantized
+relu_2_zero_point
+decoder.0.weight_zero_pointconv2d_3_output_quantizednode_conv2d_3_quant"ConvInteger*
+auto_pad"NOTSET *
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+s
+conv2d_3_output_quantized%conv2d_3_output_quantized_cast_outputconv2d_3_output_quantized_cast"Cast*	
+to 
+‘
+%conv2d_3_output_quantized_cast_output
+ node_conv2d_3_quant_scales_mul:0conv2d_3quant_scaled_output$node_conv2d_3_quant_output_scale_mul"Mul
+]
+conv2d_3quant_scaled_output
+conv2d_3_bias_reshape_outputconv2d_3conv2d_3_bias_add"Add
+¬
+conv2d_3relu_3node_relu_3"ReluJ
+	namespace‘: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.1: torch.nn.modules.activation.ReLU/relu_3: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_3 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_3,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'decoder', 'decoder.1', 'relu_3']Jל
+pkg.torch.onnx.stack_traceֽFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+i
+relu_3relu_3_quantizedrelu_3_scalerelu_3_zero_pointrelu_3_QuantizeLinear"DynamicQuantizeLinear
+m
+relu_3_scale
+decoder.2.weight_scale node_conv2d_4_quant_scales_mul:0node_conv2d_4_quant_scales_mul"Mul
+
+relu_3_quantized
+decoder.2.weight_quantized
+relu_3_zero_point
+decoder.2.weight_zero_pointconv2d_4_output_quantizednode_conv2d_4_quant"ConvInteger*
+auto_pad"NOTSET *
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+s
+conv2d_4_output_quantized%conv2d_4_output_quantized_cast_outputconv2d_4_output_quantized_cast"Cast*	
+to 
+‘
+%conv2d_4_output_quantized_cast_output
+ node_conv2d_4_quant_scales_mul:0conv2d_4quant_scaled_output$node_conv2d_4_quant_output_scale_mul"Mul
+]
+conv2d_4quant_scaled_output
+conv2d_4_bias_reshape_outputconv2d_4conv2d_4_bias_add"Add
+±
+conv2d_4masknode_sigmoid"SigmoidJ¦
+	namespace˜: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.3: torch.nn.modules.activation.Sigmoid/sigmoid: aten.sigmoid.defaultJ©
+pkg.torch.onnx.class_hierarchy†['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.Sigmoid', 'aten.sigmoid.default']J‹
+pkg.torch.onnx.fx_nodeq%sigmoid : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%conv2d_4,), kwargs = {})JE
+pkg.torch.onnx.name_scopes'['', 'decoder', 'decoder.3', 'sigmoid']JÝ
+pkg.torch.onnx.stack_trace¾File "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 361, in forward
+    return torch.sigmoid(input)
+main_graph*VBencoder.0.biasJ@ֵ$±»>\=קR">YO>b>ײ3¾ןA<)SW½ס²G<+ÊV:K6‡>“…z¾„נ&>vfß=>¡=₪NN¾*— Bencoder.2.biasJ€ש.¾<בÜE=
+³¥½₪בך½?ָ½י÷=ÝnW=r”½¶IÜ<
+|<יû½*“״<%8…=רװ„=ד«= ָ¼Ü„½]c½hהף;=#;;¡k=³ךq½{כ¦÷	Yו¼׀q״¹a= …¼׃ֹס½yמַ¼„€¾Bˆ½©ף<*— Bencoder.4.biasJ€½c=MD8½יh‚;h8«<ֿוü¼¶i=J½fם:<”
+u»חBץ¼₪Ùi½{ׁ˜<ק]4½W|³<J'J<װpB¼Ü=“…=\W…½˜Û÷=נˆ˜¼Ê× > (f=¾d:¼ֽÊL=ף׳»* r½ײ¡—¼ûƒ<Hײ=¶s=×°÷¼*VBdecoder.0.biasJ@…לÜ<ץ¶=§«4½‎f)½L…½ ¥=÷†½€י‰¼+¥Ú=üc—=3ֿ<7Ü½H‏”=*c™= ַl½,S¦=*Bdecoder.2.biasJ”€ה=* "B6S;Bencoder.0.weight_scale*"* Bencoder.0.weight_zero_point*¹Bencoder.0.weight_quantizedJfjצzר״7Q£W'MMץT·ֳװ¹5‘¸״ג2‘Fר״Aק;ûֽÞ&[<ֽ8-¹•ׂ«LFWE-b¹¬ׁיTֻÙֿvAi„¿ֳ,Arך³B Nשpַ״?װDYֶ³ֵעµ¹¨ַ‹¦Yף ֶƒ¥Ù¥ּ—‰®¦gֿ];˜Pû״©˜ד!©E¯*.:ÿÿÿÿÿÿÿÿÿBconv2d_bias_reshape_shape* "ÿÙL;Bencoder.2.weight_scale*"* Bencoder.2.weight_zero_point*©$ Bencoder.2.weight_quantizedJ€$ א‎םל‏טזסלחןי	ל‎צצÿ‎û‏üתופÿףןטק	ינ'
+תכבזיײ:#41'35SשיÚÜ׀חששםתץשזםלף
+ü üמך‏מ"+Üפתצוטסן‏קקתקףילקû#Þ נזחתיעני‏	ןןלÿ	ף  תנכךמנטו‎זץצןץדכÿװס״װTHE/562(ÿÜÊÿלּעּץפ שטחףערצנתכנ
+-)ש"
+‎חגüוםדרÿףםכûÝßת ץשזפ‏יץםץÿףםךששףכך
+ר	 ÿ 
+שץשףבזםםת״ר ‏.2(2BO,NA?ץץדÛ	ץרÞםל‎רÿקתשתמכמÿ
+‏ "נסעץןנÿ
+ÚןגכמüÙחשמע$ע׃ױעףלßק	הח׳הםÙהץ׃ע״סץצךעיתחזףשנצדנÿÿה׳)‏! -נזמ$ÿ	+שפûÞ&Ûפהי½ֽ÷ֻßספÚÚְאװûשו	 
+וט‏תש	ךזעחיוז	ןםזספ‏"ר!ÿ0
+חÝסרזכעקך‏ÿש ץ
+עועםה
+גס‏עצל‎ךאה‎ל‏ $/ חנ
+רהםימ‏סזםט‏
+*שû($2*ךזךעתקû
+ת
+ףÛשכרתנךקרמ‎ûנט
+קשצשחמ‏תרצ‎ץלנ‎פץעשס‎ירתעיתרGCO+9N=,'יÊצֻײ	
+ץ פקז‎מû	üןף#םךזן‎Ýטשרלזצין‏ם‏ßץד ךסÛפלüשית‏רüןעüקרחה
+יל צקÿדניחאאפ	ûנצüDF?%GE
+"ץנלו‎נז	זםÿץס!!*!י	צ$כךמףü‎  מל‎הסףפלעÚװגןנשרלנץץםÿןûפונךכק זזל‏ךüפÝüןעü
+ט‎!כד!ז‎ז	ר	יןפÚÞחּÚ׃״ÿלןמֹ״עם  	‎%ßהûÛנגü ßßה	נץ עקן	ץשוûÿף	ÿנÿקןזישü'ןßדצפ
+:מׂ/"38G+.גמֹ¿ופלר‏‎ף‎ףק ן‏
+
+ףץÿü7-':#11ךפÿ‏סזניצ ילסÿ״״ךיןהשÿüרשצלסרעתפםלטךגו‎ן	ו	ם
+üצשß	רü‎ץ@(!*#‏ץן)üבךערקללנר‎‏ק&ף
+	 שמ	נרףמÊףÜשײ‏‏ון$וÿ1ו- ףקקסידמ‎םכוÿש
+ס‏ב׃קחץ‎ü3ז+בוֶ-ערןנל‏:
+ב&כנךט‏צרמף‎3+צ$,,,ש"+‎	-1קנצפûעבטם‏זÛÚשסםכךכענûוש
+גמ‏חח‎עצכ ÿךרשפױד־םשA6JT&U<0Cץנ‎ÿ—Ùƒ
+ ûףזכן
+לנÛף9מ'&-; סüÝמדûלÿםןרûשרול יצױÙײקרָצטטםרÿנשךüףחקזטףוע#&ךÞ!ו״ÿךדהüÚ'2&!OB
+»זÚ®קְׁ"ÿתתû‎ץחע׃ÿשדעתץ־פ*ßן4מÿ$ד¾גÊֿÚבופנ	 ךצםדßכלׂצאÚאקק	üפבן נÝתתק‎ךûי	אÿ‏כüתףחמתכל)06CB\FFT<2׀־ֽעֵ/üתך
+‏לפחקםשב<',2Ýוזט
+‏צÜררטעץךמיתÝסי גÛßעץנמ'קץפנ
+ÿüûזלות
+‎‏ץ‏‏כתÿפווףײ4'(?+*,MSF) ָט־לשßûיחחלילףח פצ‎ץ 4'%טßץßגבן‎ ךןמÿטףמ
+‏ףםטןנÜךש$תûררף
+ü	‏üותץעÿכקמפÛרחלונßû")'‎
+
+;9‎בדכסמןכגסכמ	‏‎ךצפ0	!נ"	‎ûת‏סעכ‎‎ננזצחסיזÿךץףקרכס עקפש	תנןסגיגשתשמקמ‎קטלûÿצנÿפ	ןןûםûזרצÿטשתםפ ÿך‏חט‏עץü ‎פעüךף	צ טגךתÚדץ‏שÝפוהתיצס!תע‏ץ טטםקמ ןסזןתןקזםתבבשלשץ/8Bזע%<!חע	üכ*ÿעךםףףןז
+!ת('&&*יףüחץ
+%
+‏ףןüז טÜ׀ûÞומפץץבקענספקךפעדÿלשו	הסקÞÚק׃בÿ פH<E:W8@םּׂ¨גש»ת נף‎	כן צך"פû‎:)- */מסÛÙױÙ״תטעררצש לכÙÿûסכÿÿ‎ןß)ת#‏‏פרקכעססלםג‏‎ח‏ךגלמנךûßÙהֹּסֹחÜִגל!&‎ֻû
+לנלהקתכסז	טתי.‎את,ױ ךא-$#$ףתקצץקנÜÜÿÿמß‏ÿיזצפûחנûרזת	רסÿקטלü
+ 	פק‏אגט(שענן6H3:O9&Þֽ¹הֵÿס‎צ
+קממזסי‎ךךפ&3*'
+;גםם	גץקל
+ÿףטצÿףü‎אסüש"ם
+־#ך‎.!כןרןמזן
+פû üÊÜאךûןצÚד״³״@/+‎ ־ױÛûנמ זûÞדÞנ	ןתשרש	יךתכבצ‏אץÞעפ-
++"&ףזûשץסךÞׂןצßאטןסצץנ"טשצצנג	 םקפס	נצץהבםץ׀Ý‎י(.6,:7ׁü;שEL(28׃ֱ3חß $
+רף
+ףßÿסט
+ךל"צןיר‎>.+‎ץ‎ךיû‏לûך‏דעףח	ÿננןצ טרלזüךככםחטיפûצמךךנשציףרטדÝûסÝֿחÙכנûז״זÞתםצךה	םעםםעכמ
+יר‎יל לע
+
+חר
+‏קעטחלןûןצעצ	ûרעג‏Ùש‏רךבÜ	חר‎ךקûרüנûûזתמיüכ קךט	זצךשזûןפ	"2".)9@01AU¼ַוװ
+כמס נ ‏ עממט%-1! בüÿסיכצלמלÿיךןמתעוןףזûךג‎זגצךחט	נרךחכןףעציעקרשßףאִֶֹ»ָו׀¬ שיסןק‎ם‎ÿןÿÿ Úפא״ב	Úץר‎ÝÙפיÙ!Ûץשץÿקחץכת
+ךÿזÝÝחזקרםוßטףשק ‎צÿנצ	נטטשקששצüÿûזûÝןמם	ר#‏כ:?HIXB95ֿÚיפזצ5/ץ קםנÿםו חûעקךû4$1% &כÿךש		רתשֽהבעûַÙב 	זןַ׃כ׀מתָÙ´ץ¶ּׁע¼ֿךוןÝט	נ םקּמגאÛÛםָÚ'!)טּ»
+קפכßחחט8R%0ײ¿Ý³ÞּÜׁטןשûלקûװÙק־״¾Üֽצףßףרגמׁךß‎ימךצ ש"ןן‏בÚרÝקק׳Üןהטץ
+דלסכ	 הם	ר צשךשצח)ענ ÿר	ן0. =CXJ@פתײ׃²נ״¡‎‏ûכחע
+ÿ‏צרר %+=ÿÞרם
+ßסתזקקף׀ױײפֻמסץ‏ה־מײ׃ÞֽךרÜײ׃פֲִָֹבַ	גיג‏עטÿץûיÞיצ )'ה¿׳‎ֽח²ÿך	 ‏(װ»¼ֲ¶ßבבֽüמםü גÚצָ÷»ְקזטמוהףץÚחֽף
+ÿםüנ‏צסזצץאלריא
+ר‏ץ
+üקßץ
+ßקסמנל‏אשרû	ךגחזךךטכפשנ 	ûÿךכפצ
+קןמ‏ßףüצזיןה יף
+הנעדקצךףשüףעÿפדןףבקצלפכüזףûיהע‏םךשעםם	 צגךלכÜטפןץ ננ	ûךפםצ טסקפÿסנרחק מך‎ץH$>=H<A2>׳ײאÞֹÞפרהן
+רטצüענלתם2ûפזץץרספתקצ*0:ÿÿÿÿÿÿÿÿÿBconv2d_1_bias_reshape_shape* "¢ֵ(;Bencoder.4.weight_scale*"* Bencoder.4.weight_zero_point*©H  Bencoder.4.weight_quantizedJ€Hרÿ	תנת‏קפצ‏כגסÞהעױÊהׁüלקןüכק‏ûתÿ	ש	תף‎זײפםררר
+צ
+םלץüסÿתת‏צרü
+ ü‏תÿפÿף	 פפץץעךןןקüÿקû!!  ‏ü& םףץץןסנסרץ +üס
+תüפהנ	רÿ	פשüיכסנמרשÿהÜוףת)ûצÿÝֻפדץ‏!פÞרתקף‏ףס‎ףם‎ר ü‏	 ןרÞעןÜÜעסנ
+לנק	û‎
+פ ÿü$‎%üÿנם פ
+ץנ	ר%(-	/0,ש
+ת	"!ש"ÿע	!םןןץך‏נעננרûת()6")0üע‎מףםפ‏ ק,#,2+ÿקסף‏‎‎שÿץûנרל‎
+פש¯״¾וֲִ(,!ת"()Ý׀¼׀חס רשרףת‏
+נצüתü	
+צס‏ף‎	שאלצחרÿ9&)תם‏ףא) 3ףÙלÿםüדוכדונףÿÿצגÜÜגנםנמז‏ר	לנ סכבר'ûÙנצךצפÿֿכֿÝה
+Û û‏	‏Þךüקףלךןךכרכ
+פיקüûûקצטמך‏2$ץ3' מפ	‏בג#)')($דקך
+מüרםףקזצםסצתוû‏
+צÿיIFBצב‏ûמןûמזתfPQקÿüÿש#üואורÞטעÙׂÝ¯Úבַײףױשגסףןאֶױֻׁסזתךו²׃ױן¾הÊֽµלפרףצטע+
+1ûû‏ֵüװטױט!מנ1ר6)ףÿPNm)ֶָּֽײַײע¼Úנס¾גבױ־ױךרÚשטחחשֶןכ½אָא״ 6ד!
+ןמשמ/ך
+תיגךעֳÿז״1‏(רנכמאךֿ‎״8‏C	$ת!ÿ$6û7;ü4צגיף!ןש	Ú)'#ג(םÞÛכטאֱםצעבף׳הץֽטטמÙוכÜאמאְךר
+לׂüדÜÿסׂםפנן‎	אקָדÚנהÚ ÿקßÝּ	ץדףאסםבצאס׳כ%7;פםלגץתןךו
+פקןû	מ‏ריזלׁגß׀ßאׂד‎ךûצטמ װ׳רֿױץ׳יתû'%סû‎טױםפ	פ גÜגûעפß״סאךתüפליקÿטûÿ'W`וךשלßÜית	גÚ‏פפחüזךרגûפאûאחÞ"ßאה	 סנßך׀üץüפ״צעÿסÚחןכחנחצזטE=<‏כצÊמ״־ׂ׃ֻוךא>9ßן	פיספßצû	טס מיקקב‎פ׀ורטüץף	םן ך	רכבׁß$Ùּ‏ע ‎ÞÿכÚטגײץ	מגצרכױמÙעüפÝךסÙףתüזûנה:‏?'7üקטלסענגÜֶÜׁ°¾¸¿Ùששךףך׀ßדכטםש׃ֽלױאםףש	כק‎ תüצרטיÞןעֿדבי'8=/@&Aחרלפ	û סףJBKJra2ק*פקעטת‎ךךû"ז ‎׳קעסׂף"קהû ה‏üµ½ֽ.!()	ßש״צֿףמÝ״¿µ"7צ+‎עןשûÿמ‏ץÞצהפßזגזיזחהÞק0Ý	#¹ר.ֹזֹּ׳סשׁׁפ‏Þ לתÚ‏üûÿתוצך נ־Ú
+הÚומטÙֿ־Ûד׀עץױ>$‏זֻ»־$ךן+
+ץ%פ‰$ ְ2&—ַ"׳%Ûסתמ+סףֳס‎­ֲÙֱֿפÚÛצוװםצשסיע
+צÿדת מפ‏ףׂךûשיחס׀‎( &ֱ׀אÜסÚנױכÿתאררגףקקפ¿ֱ#ף־׃ֽ ת
+ ֳּֿÝבֳֽׁÞÛךÝ חןאהעףךלןזײסםÝ&ץ%Jצ3ֳגפױעשת‏נ‏עûל חיÚןעקכטו"‎שןכתוû׳א״יûדÛכ‏כ כ‏תיֵױדײײûדנÊ¸הֶ÷טßמכרדרÙזßהנ‎	ל	ו£ֽצ™³ך¢דת	ץךת‎		כ	ץי:
+D%#$&#תטױׁשÙֿÝßßÜבףװ־נםרךתזרךֿ	ÙֻתיÞ»‏ֶ	מש‏ מק ש*שק#ץגןÜיכגכסױׁK2?$HA1קוûמישÜÝ
+
+! !$ע‏ץ‏ûÿקקÿשמס!זקסי‏תפ ב	ן ‎ûףצÛ״ Ûֻßפ‎נקגױרעהםחכװ‎לÙûü‏ץ שרבצהט‏	טÿ ״üלק2מנרפעû %רפ 'ש‏נףזאסןלÿ‏ר טÿךßעששק
+ #‎
+נס טץ	ץ.‎ג9סףך	‎סש	י
+
+צ	üטןןשןעצûת	ÿךםתתם
+
+שתמ‎צ‏-צןQ‎ח!ם!ןאצ-ץס5ü()"םסףןûברÿז
+זףרפכנסםתנעפÚלÛקַׂ#ÿרר‎ש שמ״ֿחׂל69!ת
+&üשצםסקחקü#ש
+רü	üםם	צרûחÝק ץמ רץ‎‎ÿפ‏צת	סÿ‎קםנת	ףÿ	צשץךלצבל‎צס$ûתש	,A*1
+"% ף$‏פ	ןבוÞûÞךשטי
+צץ
+,$)/סÿ״קÛֿüב
+‎ÿמ!‏ץû	ףש
+'ךףס  עןתסח üל‏ס‏ץ‏תנטגזףמü ׂ÷ײִּי1&ÿ‏.ױָÛֻטח!'פע	צ‎ûעלךחק	רפüכ
+	ע üÿצמךזן	(!(Þצםÿמÿשדףפרצמכסנפÿע‎תנ ‎מיךÿשת	רנüמרפ בקוחקטךיתא‏ףרםכ‏צש‏זףכףחכםע)&ÿכ‎מ ‏שפכנ‏‏ת
+זמ
+קûü‏טק
+*ץץ	üתלחûû%!)%‏קץך
+ץת פןתûםחû		‎שüספצüל ûÿכßÙןסכ ףתתעעםבתרו ‏ר$&"ÿנןץתקקקשמר‏!ססשףש	םענףן׃ÊÛױֿפסüלנ‎קם	ûתÿןקןץם גא‎כÿצצ
+ץםם	מנü
+צץי"ףצ&./
+
+‎רת‏פעףש(=%/##‎ע זפû!6,8	חצזתו ü	'1'%*תרק‎üןûןרÿמשüפסקמ	יקקÿפצ׀־פ  *ש+)לÞתץרלן
+‎םף‏ûפ	
+	ןסשןתת 
+ר הÞמפûÜ״ָÚ מ‎ףסכü	ץףÿקםץנחלדבש
+ר	ץ‏חÜןעתגÛ‏)ÿÿרÿ&!>9#A.ש נ(קקף	ע
+‏סםךיÿ
+ש
+ףû #4גזנצרםןיךצתüס‏ש‎שפûסלשצלקפ‏ÿמשרûרץßמßשתשש
+רּÜהאּג	‏(הױ׀Êװ½פסמרפףנתüםקüûÿÿש"ש'נֻÙׂױßֻ½װÛצץ
+ÿ לתש
+נüתץ
+הםÿשÙתזז‎ק!'#"ם‏תÿרÿרמ	üע‏ר
+"%;"/Jע#רפםע&/(‏קשתנÿצ	&(- *
+‏סכר‎	"‎נף
+
+4+'מל	מתעע‏צ	קךלשןחüף ûכד+ $0חüבעüןןנחײחרÜג	קתצס‎קצüמץ‏לםסבמעׂנלק׀׀ÿ‏	ףויעף
+ÿצÿûü
+רץüעץÙ‏פÜױג	ת‎‏כש‎ן
+$‎ןנ רצר#
+#3#שקÿע‏    
+חצלזךצטער û
+!ש&'#תלןמףצ	מ2%--(‎ם üתנÿחלחססלשץףצרבÞֹּ·ד%ü  ְ¿¾ְֻ׳ת‏קצÿף‎סצצ	‎‏‎נשץ‎מטףבֿ׳ױזמקרשס
+	ןמנשעעצך עÿגג'#%צרת!רüש!û‏%!ûû	!ףץûצפלקקמשץ‏פםחןשתר - "8-ÿףע 	ר'û0$ףכסםץÿיחץ ץ
+ צקשחיק	ü¾÷·¿ױִ%
+ÙײָÊן׃‎‏
+רÿÿֿךֹּרײÊּמנֽאנֽ׃"ץסםבßבß״ûצ#&םתüטמס>Úüףßהחן‎שדץלÞחל	מÿרÿטםתא ֻûטךּד&וטעֵO½R׃Mם	תץץÝ	עהלÙתאסץטמשףצ
+פע״ם0ימ,םüנם‏ק
+רץüםדּֿוטזÞוÚ¯+Þ¨=חְ%ךךףÞתßהץסםלכ׀
+מ0׳אÞתםצלסÝהײיÙבץקפקס״ךÿן‎צÞמÝ>:*2תמרט׳זױטתִֽר4נצג‎üגחזבßÚסםת‎ÿחזÛב״טמהÙ¿&Ý)ָץ־א חםא׀טהןמüאÿקתÿÿ׀üלאצפַÜ‎יכ
+צûץÛפדם ג±׀װÙאמֿׁ¿ׂûֵÛֶ¼‏6ֽÞ+0ט!גÝקףֲך
+חצׂ ֻשעׁרףֿק‎ןüק
+צף	$שפםטÜüÙנֵßװמ‎)׃סשזנÚÙג.ײפכ Ûבג־Ú‏«ֶֿ$ר	üחם׳üûÛל״ט תÛױדׁÝגױם*9::ץשױ%יû	±:1%	ûמןנפ‎דטׂככךט״‎יט צ
+ ןש
+לסע‎ינסססשûכÿקקנ‏‎ןץקם‎תמףמתם
+ץפרכ‏ק‏ÿלססחץסצעםןÿחםט ץנקתצ קÿמלף
+ןכמך
+עצ		ןûמסÿל
+ננמסץסח ן‎סכסת‏שפשפםפûף ךעםנםכףנעקןשלועüןתüנסצץפ üעûüךןÿüץûנüתüץרירךמץןשץüןנףתüלקשÿק׳ÿײר‎דעּüש׀לÚןםײׂנַÛמױלתז!ûרז+üשעג
+ממקן‏עלûראÝםÞßûֵ׳גזצ‎ÿ זüי½ûה·יִ‎ץבנÿזליßלסנלװתדאײ÷צךלםֽüןןם
+שרם
+פךר/B(2Üשכßתׁר	נפװֻהלûבץÝ דכÝüרילי	תגוװײעÊֽֽ¾ל
+	תצחײכןףװןץü	 ÿבג‎יללספץ-/OU9שûûחינױ",CG+עףÞפכג וÿתטע וםשÿגצרױץקףפתÿָ# שױֵּ
+סחףרעבכםמי"/<צאךװםִּׁÝÞׁם‎ײפםßכפ"פִטÝֲױיֵµ¾׃ג	û	Ûßסֻצüל#זךÊ ו‎ששר גÿ
+ןÙיִ‎ֱÛמוױט´¾ַקֶט ןס	קגחÝ2
+ש״ÛֱזׁÊש
+$ #‎ûלל 0ס‎רףק¸ָÛֶ׀ÞÛהÞתרüןףק׳‎ּ‎קתעÜוזÜ!ÿײ״צמסץכ	my_ףדלüףֿ#םֻא»גײסf[זשץקפטן‏ד׀Úככ‏üתיעאבָָםֻדזְו‎ÿÜץךָנׂײגׂ¾Ûױעַץועןר‎ פכץ%ןז פ'$‎ן שÝיÛ°בµׁ½ְ½Ûמ¯רץֿ)״אףסןסם
+ַü׀װךÚ׳‎זּםÙי׃טןםסעÿםûשך
+Ýכֶלנ׳ף‎¾ז ׁׂׂ¸קרצוכץנ
+הײֽכױגטן‏·׀¿ס¶ז% $# ־רÝÝ‏בלÞûÿ
+ÿÛמװÝיאםץןהÝצנס׳שְÛׁ¸לכדÜ	רטע פגףרüץûûתעהשÛצץüפ *ע ‏	סתך צלאחףךÊֶםüץחש	'שכûÞנהכתדכיהץ ‏ÜÞיקמטצüגךםֱÜט§זֹ³ֵÙü"=‏	ü!"'D( 7?7צם
+ן*ûק! צכ 
+פ	
+ס>+ןכטױכװ׳ע(9‎ש/ךסüןחכמםאÛבֳÞÜאßÝ‎פüץז
+שךצ־‎פץ
+רÿקמצץץןש‏4edע#%1!@aYנÚאהװÿךחלצףחנהעע
+פתףםףÿ"ûקû‎נשצ‏הוט¥¦´ûק	ÿרטנרןצךים‎רלקפתזנטתעחחגר
+וי ס‏$()=
+קצרןפÿקש
+ףûÿûץקטשûצק"	ה	נקשסץüק	ÿפליû‎פ
+שüעק	ןעü‏רצק‏נוג	‏בלׁםסÝַךרûע‎ץ!!ßױמךןÙךיקÿץךןםנן	שמןלשק	מûץü!üûÿםחמײעץקûחתךףüû‎מע‏ץיצששץועכ"איüפתץûûüכ/םז+צנםÿü	נ
+	ל‎‎*%2/‎üמםחןזפתכח‏סץüלצץ צ	û$ûש'+9מ ו5‏ÿ ףרÿ*‏'ךכצצכסנ מףמקûשק
+כץûüÿ ךכפת״Ûֲûגח"$3"	ûÝÝב‏ץü&%üיתתפעימפ
+ס	
+סצßנ ûש;ûB	&כשףûûנגאױיףÿÞÙמקשÞױקזח1סף%ךÿÝ
+ןףצמ	רÿעתלץÙץס כתוחעי‎חד÷ֽÊִּֿׁ¾ß	3ת !:.IX*:X9Aש(9ץ	ל0
+ ü4ר+קרנÛßßןנף ט 
+ץצ‏התלüףTתC"Uּ÷›ָµ§׀©°ע‎#ננ*ת
+ךü‏שÿי׀ֽ‏םו	ע	ץ
+אגץבמüכתעצ״םקוקיסֱֲֻרזט‏Lÿ=<ÜזÞÜחשרתנץûתקÿûסקף‏
+ץצםם	קסûים כשזףעס
+ÿחקלהמ‎שץקר ‎üûנÿ םטÿנ‎ÿûוכחחרז צ ך
+	עע
+,)7$,19פ צץת-ףעקץû ףמûסצרנףצצ($DרױÊטÚעטûÝûû ‎שüûזכעסזךץ
+צ‏‎ÿ
+ץרםףיינüסקֱַֻצÙך ן+ּׂÜהÙÞ ץ ü ץעצשסצ
+ס‏	תקüפ לûסבשױק‎פדװנרו‏	המ ץןןץמחויÚצל־״ 	
+ע‎ûקתץרןת ש שפ$&5+רפקשצû‎ûנס‎ףםצףץ4!ערץ(*פס
+üש
+מסכץüס
+ÿ שקûכפץטûעפ
+׃ִָׁאױ#	 û¼ֱךֵּֿףשקץ	צצ‎צרתנ ‎רÿüü 
+ןעשûךחצכךûדצשףפנüם
+ שן
+‎טוחאת‏ 
+  "ךלשתע&צן%ףüל   û9''$קü צ‎û
+üרü û‏צף‎ךÿ	ש‎עף‏	נû'רנע	 # *1סצÿüלןשק
+ר תףף
+פÿדמזבûןקנתÿץִא׳ׂ÷ד/& *ֶÛָאב׃'
+נÿלü׳Ýֿׁ‎־םג
+ג"ֻַÙנבק ןםיכטךÿûצת צזפז‎	םקזרלß‏רןמההüכסהÞׂצײהÊײחץיüÝק¥נְםת÷װ#Ýז	Ù
+לו‏&שפןטוכוסÞח‏לארÛצ ײזעףגלדנטץüר
+	‎ןםוזל׳üÝבחü%כ&Ýנ¹‏‏רגיÞבףעצ
+ןק	צÿןר	ֵ״Ûפתק‏םמװסןß׃עארüûÿלעצעÿךעהÝ׃צ פנÙטס תז‎¯הךםרכסבססףףנסםךילßףÝתלס מ
+ר û‏מצ	צÜֶֹ¶ֹ׀ׁזׂנצף
+	ף
+ע‏פÿצפדתעמÞת פמםכק‏ü‏ןרש *ץ	צûÿÿש	שיצףזעכנ‎כןמששü
+"'))*ÿץ‏ףÿנצ üקü!*קץףצשכצ‎‎פ‏תÿשםרûחטלק ¶µÚÜױא,&$"ÿÙ״ןÜגּ&תÞתחןÞו צÿû%
+"שקתוש ומםךש‎ ר‏‎צג״ÙÝַצךךÿף‎נ‎ק יזנ ÿסש	üßאûמüפ"*ÿרסצמשצ!פ*ר  פח
+כץשכןף	$	ןףמכתם‏ץ‎ûךûס	מ‎רףר%"+üסשת-סךןüת!
+ÿ	‎‎&ÿ	צקמעע‏צ‎
+ית םüץשûאצÙהֹּ‎üת 	׳ÛםחבÚשסחûüחÿ כ*0:ÿÿÿÿÿÿÿÿÿBconv2d_2_bias_reshape_shape* "±;Bdecoder.0.weight_scale*"* Bdecoder.0.weight_zero_point*©$ Bdecoder.0.weight_quantizedJ€$רצ
+ךקל	נ3(8=4%5‎$צûעÙרצ4( ,םנûÙרװס	ש
+‏‏‎נûמענש
+ג‏ש‎ץס	$ע%פשצ(ל
+
+קÛע‎ץ‏ץ‎  יף!1%פ''
+ֹ•IÙ r.ַםûסזסןÿמ±"װ0<עקתח Û]R$ֻ×! Sב	5f(."‎זץ‎ק ט!eצ6üרVם+ץûכÿןחןû י‏ד!ך¬פװ ץיףחבüטןתכקץמח	רא Dÿם=‏tODr+u ;כנםףרL0 ($ 7קֻ׀סֲ÷מֿI%2$צם
+עעזשצט üüוןט חו מתםמל&כûה#‎צתפיעחבמפמ
+¾״'»׳¡¶+û*#רtdד_N‎
+יץûÿ!גVßJÙק¹לת %ֽFµATְa5 $2-'!ע ו‏חûüוםגûÝ0ש<ז	דםטך‏Ùוקüימטןüשüסזשזױ+ֹ%%$=üףüךהÚ$קפד ‎	עוםבפףחח‎ןÿטנתסמןתעזץלןמרןזûÞצ‏ערק‎ןף‏üסעשה‎ץיישיזלםרכצת‏פÿûסהמ
+קהÿחנשיפעטהל
+ועתיץקשפפנך	םףסÿרÿקûששעןטם	לעÿטךחÿרû‏ןנטקזזטמוכוחלדüÿק		ל זךצאזט
+ןךנשןף
+‎ûס
+‏םץמצÿבקתםץפי		פûד ףנתשקסחטתחחûותעפ
+ֲוגßפֶעÛץהטְםבשץסחÝפעקÿüםû-üÝרלר ‎סמÿתתו‏‎נ‎מש
+פûססצ	ןנüשןחימנ'"1Oתך‎שû צימכמןÛ׃ײר3ו
+ב	ל	7#,û חח
+	ײױ%ÞB09‏״Eרֿף+
+ץץ ףףצ‏חü‏ז‎‏üזטץיסףזץמ‎ןקתהקפחסז9פק0	&ױחונחרטחÿüונקכדזןפ‎אצהלט ûטנזןלףטוזתיÿםןל‎קטנ
+ץף צ
+פ
+מ	וüתר
+ÿסטûטסûןסךףüכ‏ר	ןûüרüי		קמץחחüך‎םזו‎הו‏ץסזüזüל  עןץהךתüס רץרפי‎ÿוםכ‏סכפÿי	זי‏יüהשכט יף 	‏ü‎ךנדךכשחפעעתשך‏כל	ד	חהûשדםסת‎üנצכמûלסשלÿךצנחץ"' "סûע׳טֽד	ו	"צ‎צבעאכ ג©י‏עוףפ!ם+ר)"'	
+. Úךזהרזüצ±$־ֲ *Ùצ¿יאׁיךנסÞטÿק	עקטרעגר§ןû־דך´'ם1סךû‏Úח׳ÿצסטןÿ‏ט>ז÷דטע0ק
+מז‎ק)	30	
+DגקÝ%%&>4*קט#צבÚÜךטג1 ײ4Ýֲ׃הצ½ףׂÝלק׀קפüלצעהלשר=
+*שק½
+צÊרְ
+חקûן‏ףתםןהל נû‏שßעתרןחמ‏סנקפצט‎חףûסûÿ א‏םפגדזכףץש	כשזו
+פמףצקלקססü‎ קטיך	ל‏הבÿסשÿלךכפת 
+‏פןתתקךהצםüעק
+ מךשתלךזצילרףאן‏זע‎ףמעט
+טמוÿקט
+ÿסגש ÿÿנצצûכט‏ זי‎‏כ‎ס	חףטטיûûלםחףûןנצקמ‎üשש   
+פ	")L)0mHB?>1 
+	ף‎הך2*511Úׂצגף‎טח
+6?1 םצקס
+‎‎"פנ#ûקüקשקüץ% $  *+&/üנ"‎
+ץÿֿ״Û‏ןףצתט׃כׁלהÚ ןך ךץנמ¸³־ֽׂױײסמÝÚרÝןÙחÚ.'&,*& ף‏ספנתנ!*3
+3
+ע‎נ	‎ "		ד״םץףג	ÿ	לÿזסßטעףÊÜÛאקס	ÿדעüÿ ®ּװכקיסקט&/ב
+,9״ן םלג ןִÿÜ¹("ֿ(ו‎קÞתתמצםנ	צ	םם#ק*‎	חÿך»ןא™ֽס¹‎!-מ‎טבאח#סגחכ‏ל
+ÿיÙ׳טךפפת+מץלמû(ץ&+%#;/P7Iפי/18::&&	‏ץ"	ü1נׂהÿ0	/ü‏ן+.ׂ 4׃ױ תׁÞסֶ׀פֹ ב׳רתפףד
+טף,1‏&ר*פüüדיֹ!‏ֹ	
+ ץ‏ס ûץ׀ׁעָׁסװרקיÿתצץןֵה­₪ßשüתעה
+‎םש$ס!ן#טאךדגיזֿÝֿ¿$ױשב,‎'וÿװם״קüקזרü 	ß׃£ִÊכ¯תÙ=û '׃ךאÿ'ס ץÞהח&הױ׃ûדס‏מ5)ÿקערל# ,פ 540;Hכ "&,H#ÿ*	ג־(%פ#פח0ÿ%‏4־û)ָשֳ
+ת¾נֹ״גֿתם	ך ך‏ה	û@%תü.1ü$ֳצרגשלװקמםץ‏פש‎0
+
+/9"_11x>=]9+רךûÞףדוÝשC%.%ףװ‏ײּלךג*ÿ"3.מצץעמעםüצÿÿענ‎מרר	עמüץכרסצ	ת
+ף	צûֵפפח&רז(½ÝÛÿûÿ'ÿ‏ ש ׁ״פחצםֽûֹ־׳4-%׳±ֳÙ־לÞÛ,76A'9#עף 	@2)ל	כת
+רס‎רעעת׀ûול״םß‏עת
+ןÿצשפסעװבÞכßÛÜױ	.חû)\<חÊ;מו$ײס8ײü2פ‎זÿ%2( ‎חק₪מקך׃ן0IV*ץ'@	ײיֹ!ׂ׃שנ.תה%״ף
+ם תאחÊךֶװֹ₪אבקץנױןßÊׂÿטרֽב
+צ־ף‎עאחױקזÿה/ÙQûּfהּOה°  üףֻÛÚֿÜמךפüטככ‏ײßכßש‏ÿץ#"ח	ףכט״וײ‎צס׃נּבוױ½לÊֿֹׂצֻחגֳפ
+ֱר׳Ü
+״י#¬יץַךנ/-ß‎$ץׁו‏ףÚבביץׂׁהß‎סׁגדßפךועיגֵץמַחûע
+ץק ‎בערÛÿתתךה״מצÿיׁ-*¹$רטםופטץהחנׂû ,קסÜ6 ‏Û%ÿ‏שקפדחררכ עûלמ‎ם‎הÚüךףÝûü"  ‏בÜÛÙִֹּ¾פ׃+רץ ורעטבשרצÞן‏‎‏דÜתףמß‎ׂםü!	יי#=מ	ל*ü‎!ש:$5םק)
+ן
+ÊפÞטםדסקü	ûסא!ךָ‏תֲף‏וןװק׳¦
+שתםי״מכצÝוצ	ת"
+ך#*
+ךרקזכשֳע¾	פ#	ÛשÙםיױְז¶ק&¥µפז 
+ג,.ÿ
+ûץ‏ךןםקÿÛןÚֻÜÝׁ׳חׂג‎ץכÚעחוהם‎‏קüחÊֵ·ֿÜאÚ־פ% צ6.דהצÙנבÝעבü׳
+0ֵ1#Þ-װש"*מ,üüשסןףÿך%,0ü#=פזן"‎üE'25 
+ץ	ֿ ÝנסטײרקÜ.ײפקג
+ Ùשהמוכײßָטÿ²Úעכßץהטײנü ץ''רח+ ק
+ס‏û®רַצ¾נגפüח
+
+‎‏ףףלס)ü.)ׂÙ ךהװüכüû ÿמר
+ףנפפÝנ#Üױםפםׂטתרÿשÿ
+ûסס
+אּ׃סüך 
+	Ùׁפÿידרÿכדצ-
+עֹפצןÿכועüפטüךתפ%3ÿן	צ' +צרםףגנ
+22E*!$.טת‎ק$קכטמûחכהץכתףר‏
+"למעיüÿףר‎‎זûרחךהטנציועואס‎,נרכעעכלת וץû׃הֵֽפןûשמ סü "‎ת2F9-G&F0*ץבךרתשם$;59)ֶיךן¼ןֳהß"("‎ץ	פ	ק
+ סü‎סûעץÿפü) תן פע!‎ש‎ערû ÿ׳ז אץ‎
+י§ס§שÛ׀‎ץטךת‎טמפדנתצ¸ִ¬ג¹¬כÞÞÝכ״װןׁױקכ'-"5:üמןפ!תק#67-עץת"  ק ‏פששטתּהזטצÚֻ üûחעןקפ*0:ÿÿÿÿÿÿÿÿÿBconv2d_3_bias_reshape_shape* "·V;Bdecoder.2.weight_scale*"* Bdecoder.2.weight_zero_point*¹Bdecoder.2.weight_quantizedJ*,ו6ßבמ7%׃ן+לסךז ןא
+Ûüװÿס!#¹ֳַֹÞ ÛÚ"פ Ýהמ!
+%)2י,‎םמּךָֽל·זֻה‏׃מ׀ך1	1יע‎0ה×ֿװÿתוÚ	ÝסÜַדÊÊםֿׂÿ­»ך(&ףשקץָ/!צת
+ם./*0:ÿÿÿÿÿÿÿÿÿBconv2d_4_bias_reshape_shapeZֿ
+input 
+
+batch
+
+
+time"=
+/pkg.torch.export.graph_signature.InputSpec.kind
+USER_INPUT"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"&
+!pkg.torch.onnx.original_node_namexb—
+mask 
+
+batch
+
+
+time"?
+0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT",
+!pkg.torch.onnx.original_node_namesigmoidjא
+encoder.0.weight
+
+
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_0_weightj׀
+encoder.0.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_0_biasjא
+encoder.2.weight
+
+ 
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_2_weightj׀
+encoder.2.bias
+
+
+ "<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_2_biasjא
+encoder.4.weight
+
+ 
+ 
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_4_weightj׀
+encoder.4.bias
+
+
+ "<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_4_biasjא
+decoder.0.weight
+
+
+ 
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_decoder_0_weightj׀
+decoder.0.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_decoder_0_biasjא
+decoder.2.weight
+
+
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_decoder_2_weightj׀
+decoder.2.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_decoder_2_biasj*
+conv2d 
+
+batch
+
+
+timej(
+relu 
+
+batch
+
+
+timej,
+conv2d_1 
+
+batch
+ 
+
+timej*
+relu_1 
+
+batch
+ 
+
+timej,
+conv2d_2 
+
+batch
+ 
+
+timej*
+relu_2 
+
+batch
+ 
+
+timej,
+conv2d_3 
+
+batch
+
+
+timej*
+relu_3 
+
+batch
+
+
+timej,
+conv2d_4 
+
+batch
+
+
+time‚‰
+0pkg.torch.export.ExportedProgram.graph_signatureװ
+# inputs
+p_encoder_0_weight: PARAMETER target='encoder.0.weight'
+p_encoder_0_bias: PARAMETER target='encoder.0.bias'
+p_encoder_2_weight: PARAMETER target='encoder.2.weight'
+p_encoder_2_bias: PARAMETER target='encoder.2.bias'
+p_encoder_4_weight: PARAMETER target='encoder.4.weight'
+p_encoder_4_bias: PARAMETER target='encoder.4.bias'
+p_decoder_0_weight: PARAMETER target='decoder.0.weight'
+p_decoder_0_bias: PARAMETER target='decoder.0.bias'
+p_decoder_2_weight: PARAMETER target='decoder.2.weight'
+p_decoder_2_bias: PARAMETER target='decoder.2.bias'
+x: USER_INPUT
+
+# outputs
+sigmoid: USER_OUTPUT
+‚]
+2pkg.torch.export.ExportedProgram.range_constraints'{s77: VR[0, int_oo], s0: VR[0, int_oo]}B
+ r
+
+onnx.inferonnxruntime.quant

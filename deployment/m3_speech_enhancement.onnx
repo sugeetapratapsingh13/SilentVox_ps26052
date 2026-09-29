@@ -1,0 +1,357 @@
+
+pytorch
+2.14.0+cpu: 
+ö	
+input
+encoder.0.weight
+encoder.0.biasconv2dnode_conv2d"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ J
+	namespace: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.0: torch.nn.modules.conv.Conv2d/conv2d: aten.conv2d.defaultJ 
+pkg.torch.onnx.class_hierarchy~['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']Jº
+pkg.torch.onnx.fx_nodeŸ%conv2d : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%x, %p_encoder_0_weight, %p_encoder_0_bias, [1, 1], [1, 1]), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'encoder', 'encoder.0', 'conv2d']Jô
+pkg.torch.onnx.stack_traceÕFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+
+conv2drelu	node_relu"ReluJ
+	namespace: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.1: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']Jƒ
+pkg.torch.onnx.fx_nodei%relu : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d,), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'encoder', 'encoder.1', 'relu']Jì
+pkg.torch.onnx.stack_traceÍFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+‚
+
+relu
+encoder.2.weight
+encoder.2.biasconv2d_1node_conv2d_1"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ JŸ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.2: torch.nn.modules.conv.Conv2d/conv2d_1: aten.conv2d.defaultJ 
+pkg.torch.onnx.class_hierarchy~['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']J¿
+pkg.torch.onnx.fx_node¤%conv2d_1 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu, %p_encoder_2_weight, %p_encoder_2_bias, [1, 1], [1, 1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'encoder', 'encoder.2', 'conv2d_1']Jô
+pkg.torch.onnx.stack_traceÕFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+¬
+conv2d_1relu_1node_relu_1"ReluJŸ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.3: torch.nn.modules.activation.ReLU/relu_1: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_1,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'encoder', 'encoder.3', 'relu_1']Jì
+pkg.torch.onnx.stack_traceÍFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+†
+
+relu_1
+encoder.4.weight
+encoder.4.biasconv2d_2node_conv2d_2"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ JŸ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.4: torch.nn.modules.conv.Conv2d/conv2d_2: aten.conv2d.defaultJ 
+pkg.torch.onnx.class_hierarchy~['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']JÁ
+pkg.torch.onnx.fx_node¦%conv2d_2 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_1, %p_encoder_4_weight, %p_encoder_4_bias, [1, 1], [1, 1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'encoder', 'encoder.4', 'conv2d_2']Jô
+pkg.torch.onnx.stack_traceÕFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+¬
+conv2d_2relu_2node_relu_2"ReluJŸ
+	namespace‘: model.SpeechEnhancementCNN/encoder: torch.nn.modules.container.Sequential/encoder.5: torch.nn.modules.activation.ReLU/relu_2: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_2 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_2,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'encoder', 'encoder.5', 'relu_2']Jì
+pkg.torch.onnx.stack_traceÍFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+†
+
+relu_2
+decoder.0.weight
+decoder.0.biasconv2d_3node_conv2d_3"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ JŸ
+	namespace‘: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.0: torch.nn.modules.conv.Conv2d/conv2d_3: aten.conv2d.defaultJ 
+pkg.torch.onnx.class_hierarchy~['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']JÁ
+pkg.torch.onnx.fx_node¦%conv2d_3 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_2, %p_decoder_0_weight, %p_decoder_0_bias, [1, 1], [1, 1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'decoder', 'decoder.0', 'conv2d_3']Jô
+pkg.torch.onnx.stack_traceÕFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+¬
+conv2d_3relu_3node_relu_3"ReluJŸ
+	namespace‘: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.1: torch.nn.modules.activation.ReLU/relu_3: aten.relu.defaultJ£
+pkg.torch.onnx.class_hierarchy€['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']J‡
+pkg.torch.onnx.fx_nodem%relu_3 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%conv2d_3,), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'decoder', 'decoder.1', 'relu_3']Jì
+pkg.torch.onnx.stack_traceÍFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+†
+
+relu_3
+decoder.2.weight
+decoder.2.biasconv2d_4node_conv2d_4"Conv*
+kernel_shape@@ *
+group *
+auto_pad"NOTSET *
+	dilations@@ *
+strides@@ *
+pads@@@@ JŸ
+	namespace‘: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.2: torch.nn.modules.conv.Conv2d/conv2d_4: aten.conv2d.defaultJ 
+pkg.torch.onnx.class_hierarchy~['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.conv.Conv2d', 'aten.conv2d.default']JÁ
+pkg.torch.onnx.fx_node¦%conv2d_4 : [num_users=1] = call_function[target=torch.ops.aten.conv2d.default](args = (%relu_3, %p_decoder_2_weight, %p_decoder_2_bias, [1, 1], [1, 1]), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'decoder', 'decoder.2', 'conv2d_4']Jô
+pkg.torch.onnx.stack_traceÕFile "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+±
+conv2d_4masknode_sigmoid"SigmoidJ¦
+	namespace˜: model.SpeechEnhancementCNN/decoder: torch.nn.modules.container.Sequential/decoder.3: torch.nn.modules.activation.Sigmoid/sigmoid: aten.sigmoid.defaultJ©
+pkg.torch.onnx.class_hierarchy†['model.SpeechEnhancementCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.Sigmoid', 'aten.sigmoid.default']J‹
+pkg.torch.onnx.fx_nodeq%sigmoid : [num_users=1] = call_function[target=torch.ops.aten.sigmoid.default](args = (%conv2d_4,), kwargs = {})JE
+pkg.torch.onnx.name_scopes'['', 'decoder', 'decoder.3', 'sigmoid']Jİ
+pkg.torch.onnx.stack_trace¾File "D:\SilentVox_ps26052\M3-P4\models\cnn\model.py", line 28, in forward
+    return self.decoder(self.encoder(x))
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\container.py", line 259, in forward
+    input = module(input)
+  File "C:\Users\Tanisha\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\activation.py", line 361, in forward
+    return torch.sigmoid(input)
+main_graph*gBencoder.0.weightj+
+locationm3_speech_enhancement.onnx.dataj
+offset0j
+length576p*VBencoder.0.biasJ@Å$±»>\=÷R">YO>b>Ö3¾ïA<)SW½ñ²G<+ÊV:K6‡>“…z¾„ğ&>vfß=>¡=¤NN¾*l Bencoder.2.weightj+
+locationm3_speech_enhancement.onnx.dataj
+offset1152j
+length18432p*— Bencoder.2.biasJ€ù.¾<áÜE=
+³¥½¤áê½?È½éº=İnW=r”Ÿ½¶IÜ<
+|<éû½*“Ø<%8…=øÔ„=ã«= È¼Ü„½]c½häó;š=#;;¡k=³êq½{ë¦º	Yå¼ĞqØ¹a= …¼ÓÉñ½yîÇ¼„€¾Bˆ½Š©ó<*m  Bencoder.4.weightj+
+locationm3_speech_enhancement.onnx.dataj
+offset38016j
+length36864p*— Bencoder.4.biasJ€½c=MD8½éh‚;h8«<Ïåü¼¶i=J½fí:<”
+u»çBõ¼¤Ùi½{Ñ˜<÷]4½W|³<J'J<ÔpB¼Ü=“…=\W…½˜Ûº=ğˆ˜¼Êª > (f=¾d:¼ÍÊL=óŒ×»* r½Ö¡—¼ûƒš<HÖœ=¶s=ª°º¼*m Bdecoder.0.weightj+
+locationm3_speech_enhancement.onnx.dataj
+offset19584j
+length18432p*VBdecoder.0.biasJ@…ìÜ<õ¶=§«4½ıf)½L…½Ÿ ¥=º†½€é‰¼+¥Ú=üc—=3ÏŠ<7Ü½Hş”=*c™= Çl½,S¦=*iBdecoder.2.weightj+
+locationm3_speech_enhancement.onnx.dataj
+offset576j
+length576p*Bdecoder.2.biasJ”€ä=ZÏ
+input 
+
+batch
+
+
+time"=
+/pkg.torch.export.graph_signature.InputSpec.kind
+USER_INPUT"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"&
+!pkg.torch.onnx.original_node_namexb—
+mask 
+
+batch
+
+
+time"?
+0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT",
+!pkg.torch.onnx.original_node_namesigmoidjà
+encoder.0.weight
+
+
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_0_weightjĞ
+encoder.0.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_0_biasjà
+encoder.2.weight
+
+ 
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_2_weightjĞ
+encoder.2.bias
+
+
+ "<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_2_biasjà
+encoder.4.weight
+
+ 
+ 
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_encoder_4_weightjĞ
+encoder.4.bias
+
+
+ "<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_encoder_4_biasjà
+decoder.0.weight
+
+
+ 
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_decoder_0_weightjĞ
+decoder.0.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_decoder_0_biasjà
+decoder.2.weight
+
+
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"7
+!pkg.torch.onnx.original_node_namep_decoder_2_weightjĞ
+decoder.2.bias
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"5
+!pkg.torch.onnx.original_node_namep_decoder_2_biasj*
+conv2d 
+
+batch
+
+
+timej(
+relu 
+
+batch
+
+
+timej,
+conv2d_1 
+
+batch
+ 
+
+timej*
+relu_1 
+
+batch
+ 
+
+timej,
+conv2d_2 
+
+batch
+ 
+
+timej*
+relu_2 
+
+batch
+ 
+
+timej,
+conv2d_3 
+
+batch
+
+
+timej*
+relu_3 
+
+batch
+
+
+timej,
+conv2d_4 
+
+batch
+
+
+time‚‰
+0pkg.torch.export.ExportedProgram.graph_signatureÔ
+# inputs
+p_encoder_0_weight: PARAMETER target='encoder.0.weight'
+p_encoder_0_bias: PARAMETER target='encoder.0.bias'
+p_encoder_2_weight: PARAMETER target='encoder.2.weight'
+p_encoder_2_bias: PARAMETER target='encoder.2.bias'
+p_encoder_4_weight: PARAMETER target='encoder.4.weight'
+p_encoder_4_bias: PARAMETER target='encoder.4.bias'
+p_decoder_0_weight: PARAMETER target='decoder.0.weight'
+p_decoder_0_bias: PARAMETER target='decoder.0.bias'
+p_decoder_2_weight: PARAMETER target='decoder.2.weight'
+p_decoder_2_bias: PARAMETER target='decoder.2.bias'
+x: USER_INPUT
+
+# outputs
+sigmoid: USER_OUTPUT
+‚]
+2pkg.torch.export.ExportedProgram.range_constraints'{s77: VR[0, int_oo], s0: VR[0, int_oo]}B
+ 
