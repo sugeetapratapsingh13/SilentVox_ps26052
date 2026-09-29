@@ -25,8 +25,8 @@
     "state_persistence": true,
     "samples_processed": 64000,
     "final_weight_norm": 0.004592402674822776,
-    "processing_seconds": 0.2914141999935964,
-    "real_time_factor": 13.72616708481569
+    "processing_seconds": 0.2794133000134025,
+    "real_time_factor": 14.315710811933913
   },
   "m3": {
     "model": "M3-P4/model/trained_model.pth",
@@ -50,8 +50,8 @@
     "block_size": 512,
     "samples": 64000,
     "duration_seconds": 4.0,
-    "m1_processing_seconds": 0.2914141999935964,
-    "m1_real_time_factor": 13.72616708481569,
+    "m1_processing_seconds": 0.2794133000134025,
+    "m1_real_time_factor": 14.315710811933913,
     "input_rms": 0.07563176102687377,
     "anc_residual_rms": 0.07537481072800675,
     "final_output_rms": 0.12402458759957653,

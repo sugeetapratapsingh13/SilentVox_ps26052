@@ -1,0 +1,27 @@
+{
+  "benchmark_type": "SOFTWARE_PLATFORM_BENCHMARK",
+  "target_platform": "Raspberry Pi 5",
+  "physical_validation": false,
+  "block_sizes": [
+    256,
+    512,
+    1024
+  ],
+  "results": [
+    {
+      "block_size": 256,
+      "wall_time_seconds": 3.955735800002003,
+      "orchestrator_pass": true
+    },
+    {
+      "block_size": 512,
+      "wall_time_seconds": 4.7394912999880034,
+      "orchestrator_pass": true
+    },
+    {
+      "block_size": 1024,
+      "wall_time_seconds": 3.7362624000234064,
+      "orchestrator_pass": true
+    }
+  ]
+}
