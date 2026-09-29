@@ -10,6 +10,8 @@ import numpy as np
 import sounddevice as sd
 import torch
 
+from integration.m3_adapter import create_adapter
+
 
 # ============================================================
 # SILENTVOX M2-P6 — LIVE AUDIO DEPLOYMENT
@@ -1033,6 +1035,16 @@ def run_live() -> None:
         std=std,
     )
 
+    print("Loading M3 enhancement model...")
+    m3_adapter = create_adapter()
+    print(
+        f"M3 model:          {m3_adapter.model.__class__.__name__}"
+    )
+    print(
+        f"M3 parameters:     {m3_adapter.parameter_count}"
+    )
+    print()
+
     try:
 
         while True:
@@ -1047,8 +1059,15 @@ def run_live() -> None:
                     "WARNING: Audio input overflow detected."
                 )
 
+            m3_result = m3_adapter.process(
+                audio,
+                SAMPLE_RATE,
+            )
+
+            enhanced_audio = m3_result.enhanced_audio
+
             result = processor.process(
-                audio
+                enhanced_audio
             )
 
             print(
